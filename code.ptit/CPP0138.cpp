@@ -33,8 +33,11 @@ template <typename T> bool is_prime(T n) {
 template <typename T> std::pair<T, T> calculate(T target) {
 
 	for (T i = 2; i <= target / 2; ++i) {
+
 		if (!is_prime<T>(i)) continue;
+
 		T j = target - i;
+
 		if (is_prime(j)) return { i, j };
 	}
 
