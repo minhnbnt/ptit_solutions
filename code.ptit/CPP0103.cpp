@@ -3,17 +3,21 @@
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned long n;
 	std::cin >> n;
 
-	double sum = 0;
+	float sum = 0;
 
 	while (n > 0) {
 		sum += 1.0 / n;
 		--n;
 	}
 
-	std::cout << std::fixed << std::setprecision(4) << sum << std::endl;
+	std::cout.precision(4);
+	std::cout << std::fixed << sum << std::endl;
 
 	return 0;
 }
