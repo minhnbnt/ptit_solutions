@@ -7,6 +7,9 @@ using u64 = unsigned long long;
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	u64 start, end, i, j;
 	std::cin >> start >> end;
 
