@@ -114,13 +114,13 @@ public:
 		MatHang mh = *dsmh[hd.maMH];
 		u64 thanh_tien = hd.so_luong * mh.gia_ban;
 
-		std::cout << hd.id << ' ' << kh.ten << ' ' << kh.dia_chi << ' ';
-		std::cout << mh.ten << ' ' << mh.don_vi << ' ' << mh.gia_ban
+		std::cout << hd.id_str() << ' ' << kh.ten << ' ' << kh.dia_chi << ' ';
+		std::cout << mh.ten << ' ' << mh.don_vi << ' ' << mh.gia_mua << ' '
 		          << mh.gia_ban << ' ';
 		std::cout << hd.so_luong << ' ' << thanh_tien << '\n';
 	};
 };
-}; // namespace my_iostream
+} // namespace my_iostream
 
 my_iostream::istream cin;
 my_iostream::ostream cout;
