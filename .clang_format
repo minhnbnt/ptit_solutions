@@ -1,0 +1,11 @@
+AccessModifierOffset: 0
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortLoopsOnASingleLine: true
+ColumnLimit: 80
+Cpp11BracedListStyle: false
+IncludeBlocks: Regroup
+IndentWidth: 4
+TabWidth: 4
+UseTab: AlignWithSpaces
