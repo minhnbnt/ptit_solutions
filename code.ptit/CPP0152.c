@@ -10,10 +10,18 @@ int main(void) {
 		unsigned a, m;
 		scanf("%u%u", &a, &m);
 
-		unsigned result = 1;
-		while (result * a % m != 1) ++result;
+		int result = 1;
+		while (result * a % m != 1) {
 
-		printf("%u\n", result);
+			++result;
+
+			if (result > m) {
+				result = -1;
+				break;
+			}
+		}
+
+		printf("%d\n", result);
 		fflush(stdout);
 	}
 
