@@ -1,3 +1,28 @@
+/*
+Một số được gọi là “lộc phát” nếu chỉ có các chữ số 0,6,8. Nhập vào một số
+nguyên dương không quá 9 chữ số, hãy kiểm tra xem đó có phải số lộc phát hay
+không.
+
+Input
+Dòng đầu là số bộ test, mỗi dòng tiếp theo ghi một số cần kiểm tra.
+
+Ouput
+Nếu đúng in ra YES, nếu sai in ra NO.
+
+Ví dụ
+
+Input:
+3
+181
+88888
+608868
+
+Output:
+NO
+YES
+YES
+*/
+
 #include <cstring>
 #include <iostream>
 #include <string>

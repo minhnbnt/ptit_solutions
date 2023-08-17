@@ -1,11 +1,29 @@
+/*
+Viết chương trình cho phép nhập vào hai số nguyên dương và tìm tất cả các số
+nguyên tố nằm trong khoảng đó.
+
+Input
+Chỉ có 2 số nguyên dương a và b (không quá 106)
+
+Output
+Ghi ra lần lượt các số nguyên tố trong khoảng. Cách nhau một khoảng trống.
+
+Ví dụ:
+Input:
+10 50
+
+Output:
+11 13 17 19 23 29 31 37 41 43 47
+*/
+
 #include <algorithm>
 #include <complex>
 #include <iostream>
 #include <vector>
 
-using u64 = unsigned long long;
-
 int main(void) {
+
+	using u64 = unsigned long long;
 
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr), std::cout.tie(nullptr);

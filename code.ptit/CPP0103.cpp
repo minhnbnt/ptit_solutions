@@ -1,3 +1,20 @@
+/*
+Viết chương trình tính tổng  S = 1 + 1/2 + 1/3 + … + 1/N
+
+Input:
+Dữ liệu vào chỉ có 1 dòng ghi số N không quá 6 chữ số.
+
+Output:
+Kết quả ghi chính xác với 4 số phần thập phân.
+
+Ví dụ:
+Input:
+2
+
+Output:
+1.5000
+*/
+
 #include <iomanip>
 #include <iostream>
 

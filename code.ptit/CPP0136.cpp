@@ -1,24 +1,23 @@
 /*
-Cho số tự nhiên N. Nhiệm vụ của bạn là hãy đưa ra ước số nguyên tố thứ k của N.
-Đưa ra -1 nếu không tồn tại ước số thứ k của N. Ví dụ N = 225, k =2 ta có kết
-quả là 3 vì 225 = 3×3×5×5. Với N = 81, k = 5 ta có kết quả -1 vì 81 = 3×3×3×3.
+Cho số tự nhiên N. Nhiệm vụ của bạn là hãy đếm tất cả các số có đúng ba ước số.
+Ví dụ n=100, ta có các số 4.
 
 Input:
 Dòng đầu tiên đưa vào số lượng test T.
-Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một bộ đôi N và k.
-T, N thỏa mãn ràng buộc 1≤T≤100; 1≤N, k≤104.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số N.
+T, N thỏa mãn rang buộc 1≤T≤100; 1≤N ≤1012.
 
 Output:
-
 Đưa ra kết quả mỗi test theo từng dòng.
+
 Input:
 2
-225 2
-81 5
+50
+200
 
 Output:
-3
--1
+4
+6
 */
 
 #include <algorithm>
@@ -61,11 +60,11 @@ int main(void) {
 			}
 		}
 
-		for (i = 0; i <= n; ++i) {
-			if (!vec[i]) continue;
-			std::cout << i * i << ' ';
+		unsigned count = 0;
+		for (i = 1; i <= n; ++i) {
+			if (vec[i]) ++count;
 		}
-		std::cout << std::endl;
+		std::cout << count << std::endl;
 	}
 
 	return 0;

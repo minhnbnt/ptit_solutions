@@ -1,3 +1,27 @@
+/*
+Dãy số Fibonacci được định nghĩa Fn = Fn-1 + Fn-2, n>1 và F0 = 0, F1 = 1.
+Dưới đây là một số số Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, 21…
+
+Nhiệm vụ của bạn là tìm số Fibonacci thứ n.
+
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số nguyên dương n.
+T, n thỏa mãn ràng buộc :1 ≤ T ≤ 100; 1≤n≤1000.
+
+Output:
+Đưa ra kết quả mỗi test theo modulo 109 + 7 theo từng dòng.
+
+Input:
+2
+2
+5
+
+Output:
+1
+5
+*/
+
 #include <iostream>
 #include <vector>
 

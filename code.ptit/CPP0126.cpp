@@ -1,3 +1,27 @@
+/*
+Hãy sinh ra tất cả các số nguyên tố trong khoảng [M, N]. Ví dụ M=1, N=10 ta có
+kết quả 2 3 5 7.
+
+Input:
+Dòng đầu tiên đưa vào số lượng test T.
+
+Những dòng kế tiếp mỗi dòng đưa vào một bộ test. Mỗi bộ test là bộ đôi M, N được
+viết cách nhau một vài khoảng trống. T, M, N thỏa mãn ràng buộc: 1≤T≤100;
+1≤M≤N≤10000; N-M≤10000.
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+
+Input:
+2
+1 10
+3 5
+
+Output:
+2 3 5 7
+3 5
+*/
+
 #include <complex>
 #include <iostream>
 #include <vector>

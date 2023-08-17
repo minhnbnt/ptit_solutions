@@ -1,3 +1,20 @@
+/*
+Viết chương trình tính tổng  S = 1 + 1.2 + 1.2.3 + ...+ 1.2.3...N
+
+Input:
+Dữ liệu vào chỉ có 1 dòng ghi số N không quá 20.
+
+Output:
+Kết quả ghi trên một dòng.
+
+Ví dụ:
+Input:
+3
+
+Output:
+9
+*/
+
 #include <stdio.h>
 
 int main(void) {

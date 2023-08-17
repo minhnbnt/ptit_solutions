@@ -1,3 +1,28 @@
+/*
+Cho số nguyên dương N>2. Hãy đưa ra cặp số nguyên tố p, q đầu tiên tìm được có
+tổng đúng bằng N. Ví dụ N = 6 ta có cặp số nguyên tố đầu tiên là 3 + 3 =6.
+
+Trong trường hợp không tìm thấy đáp án thì không in ra gì cả.
+
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số chẵn N.
+T, N thỏa mãn ràng buộc : 1≤T≤100; 4≤N≤10000.
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng. Nếu không có cặp số nào thỏa mãn thì
+không in ra gì cả.
+
+Input:
+2
+74
+1024
+
+Output:
+3 71
+3 1021
+*/
+
 #include <algorithm>
 #include <complex>
 #include <iostream>

@@ -8,12 +8,12 @@ Quá trình rút gọn kết thúc khi số thu được chỉ có duy nhất 1 
 
 Các bạn hãy cùng Tí đi tìm chữ số cuối cùng của phép rút gọn!
 
-Input
+Input:
 Dòng đầu tiên gồm số lượng test T (T <= 100).
 
 T dòng tiếp theo, mỗi dòng gồm một số nguyên dương (<= 10^9).
 
-Output
+Output:
 Hãy in ra chữ số cuối cùng sau khi thực hiện phép rút gọn.
 
 Example
@@ -31,6 +31,17 @@ Output:
 
 #include <stdio.h>
 
+#define u64 unsigned long long
+
+u64 gcd(u64 a, u64 b) {
+
+	while (a > 0 && b > 0)
+		if (a > b) a %= b;
+		else b %= a;
+
+	return a + b;
+}
+
 int main(void) {
 
 	unsigned cases;
@@ -38,22 +49,13 @@ int main(void) {
 
 	while (cases--) {
 
-		unsigned long num;
-		scanf("%lu", &num);
+		u64 a, b;
 
-		while (num >= 10) {
+		scanf("%llu%llu", &a, &b);
 
-			unsigned sum = 0;
+		u64 g = gcd(a, b);
 
-			while (num > 0) {
-				sum += num % 10;
-				num /= 10;
-			}
-
-			num = sum;
-		}
-
-		printf("%lu\n", num);
+		printf("%llu %llu\n", a * b / g, g);
 		fflush(stdout);
 	}
 
