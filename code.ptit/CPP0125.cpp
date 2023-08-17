@@ -36,7 +36,7 @@ int main(void) {
 	std::vector<bool> isPrime(end + 1, true);
 	isPrime[0] = isPrime[1] = false;
 
-	for (i = 2; i < sqrt(end); ++i) {
+	for (i = 2; i <= sqrt(end); ++i) {
 
 		if (!isPrime[i]) continue;
 

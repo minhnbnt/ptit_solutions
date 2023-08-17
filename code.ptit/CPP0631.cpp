@@ -45,8 +45,8 @@ Giá mua
 Giá bán
 Số lượng
 Thành tiền
-Ví dụ
 
+Ví dụ:
 Input:
 2
 Nguyen Van Nam
@@ -73,8 +73,10 @@ KH002 MH002 4
 
 Output:
 HD001 Nguyen Van Nam Mo Lao-Ha Dong-Ha Noi Ao phong tre em Cai 25000 41000 2
-82000 HD002 Nguyen Van Nam Mo Lao-Ha Dong-Ha Noi Ao khoac nam Cai 240000 515000
-3 1545000 HD003 Tran Van Binh Phung Khoang-Nam Tu Liem-Ha Noi Ao khoac nam Cai
+82000
+HD002 Nguyen Van Nam Mo Lao-Ha Dong-Ha Noi Ao khoac nam Cai 240000 515000
+3 1545000
+HD003 Tran Van Binh Phung Khoang-Nam Tu Liem-Ha Noi Ao khoac nam Cai
 240000 515000 4 2060000
 */
 
@@ -137,7 +139,7 @@ std::istream &operator>>(std::istream &is, KhachHang &kh) {
 
 	std::getline(is >> std::ws, kh.dia_chi);
 
-	dskh.insert({ kh.id_str(), &kh });
+	dskh.emplace(kh.id_str(), &kh);
 
 	return is;
 }
@@ -153,7 +155,7 @@ std::istream &operator>>(std::istream &is, MatHang &mh) {
 
 	is >> mh.gia_mua >> mh.gia_ban;
 
-	dsmh.insert({ mh.id_str(), &mh });
+	dsmh.emplace(mh.id_str(), &mh);
 
 	return is;
 }
@@ -182,9 +184,9 @@ struct HoaDon {
 
 	friend std::ostream &operator<<(std::ostream &os, HoaDon &hd) {
 
-		KhachHang &kh = *dskh[hd.maKH];
-		MatHang &mh = *dsmh[hd.maMH];
-		u64 thanh_tien = hd.so_luong * mh.gia_ban;
+		const MatHang &mh = *dsmh[hd.maMH];
+		const KhachHang &kh = *dskh[hd.maKH];
+		const u64 thanh_tien = hd.so_luong * mh.gia_ban;
 
 		os << hd.id_str() << ' ' << kh.ten << ' ' << kh.dia_chi << ' ';
 		os << mh.ten << ' ' << mh.don_vi << ' ' << mh.gia_mua << ' '
