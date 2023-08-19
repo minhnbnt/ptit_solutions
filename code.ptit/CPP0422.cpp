@@ -31,8 +31,7 @@ Output:
 #include <vector>
 
 template <typename T> int comparator(const T &a, const T &b) {
-	if (b == 0) return 1;
-	return 0;
+	return b == 0;
 }
 
 int main(void) {
