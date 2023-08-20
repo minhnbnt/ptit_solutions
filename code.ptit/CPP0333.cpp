@@ -1,3 +1,23 @@
+/*
+Tên người dùng sẽ được chuẩn hóa theo nguyên tắc tên được viết sau cùng, phân
+tách với phần tên đệm và tên bởi dấu phẩy. Các chữ cái nằm trong tên đều được
+viết hoa; chữ cái đầu tiên của tên đệm và họ được viết hoa, các chữ cái còn lại
+viết thường.
+
+Input:
+Chỉ có một xâu họ tên độ dài không quá 100
+
+Output:
+Ghi ra xâu họ tên đã chuẩn hóa theo mẫu trong ví dụ
+
+Ví dụ:
+Input:
+ngUyeN   vAN Nam
+
+Output:
+Nguyen Van, NAM
+*/
+
 #include <iostream>
 #include <sstream>
 #include <string>
