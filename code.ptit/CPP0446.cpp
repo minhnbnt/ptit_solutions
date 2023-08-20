@@ -1,3 +1,28 @@
+/*
+Cho mảng A[] gồm n phần tử, hãy tìm cặp phần tử có tổng gần nhất so với 0.
+
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test gồm hai dòng: dòng thứ nhất
+đưa vào n là số phần tử của mảng A[]; dòng tiếp theo đưa vào n số A[i]; các số
+được viết cách nhau một vài khoảng trống. T, n, A[i] thỏa mãn ràng buộc:
+1≤T≤100; 2≤N ≤10^3, -10^6≤A[i] ≤10^6.
+
+Output:
+Đưa ra tổng gần nhất với 0 của cặp phần tử.
+
+Input:
+2
+3
+-8 -66 -60
+6
+-21 -67 -37 -18 4 -65
+
+Output:
+-68
+-14
+*/
+
 #include <iostream>
 #include <limits>
 #include <vector>
