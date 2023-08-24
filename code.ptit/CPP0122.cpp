@@ -5,7 +5,7 @@ Nhiệm vụ của bạn là tìm số nguyên nhỏ nhất chia hết cho 1, 2,
 Input:
 Dòng đầu tiên đưa vào T là số lượng bộ test.
 T dòng tiếp theo mỗi dòng đưa vào một bộ test. Mỗi bộ test là một số tự nhiên n.
-T thỏa mãn ràng buộc: 1≤T≤104;
+T thỏa mãn ràng buộc: 1≤T≤10^4;
 
 Output:
 Đưa ra kết quả mỗi test theo từng dòng.
@@ -20,18 +20,14 @@ Output:
 60
 */
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
 using u64 = unsigned long long;
 
-u64 gcd(u64 a, u64 b) {
-	if (b == 0) return a;
-	return gcd(b, a % b);
-}
-
 u64 lcm(u64 a, u64 b) {
-	return a * b / gcd(a, b);
+	return a * b / std::__gcd(a, b);
 }
 
 int main(void) {
