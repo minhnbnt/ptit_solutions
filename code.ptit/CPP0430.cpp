@@ -24,7 +24,7 @@ int main(void) {
 		const int &L = *set.begin();
 		const int &R = *set.rbegin();
 
-		std::cout << L - R - set.size() + 1 << std::endl;
+		std::cout << R - L - set.size() + 1 << std::endl;
 	}
 
 	return 0;
