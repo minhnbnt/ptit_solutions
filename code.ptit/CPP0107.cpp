@@ -48,7 +48,7 @@ Output:
 #include <iostream>
 #include <unordered_map>
 
-static std::unordered_map<int, const char *> rignt_ans = { //
+const std::unordered_map<int, const char *> right_ans = { //
 	{ 101, "ABBADCCABDCCABD" },
 	{ 102, "ACCABCDDBBCDDBB" }
 };
@@ -57,6 +57,8 @@ int main(void) {
 
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
+	std::cout.precision(2);
 
 	unsigned cases;
 	std::cin >> cases;
@@ -67,19 +69,19 @@ int main(void) {
 		std::cin >> id;
 
 		float score = 10;
-		static const float score_per_ques = score / 15;
+		static const float score_per_ques = 10.0 / 15;
 
 		for (int i = 0; i < 15; i++) {
 
 			char ans;
 			std::cin >> std::ws >> ans;
 
-			if (ans != rignt_ans[id][i]) {
+			if (ans != right_ans[id][i]) {
 				score -= score_per_ques;
 			}
 		}
 
-		std::cout << std::fixed << std::setprecision(2) << score << std::endl;
+		std::cout << std::fixed << score << std::endl;
 	}
 
 	return 0;

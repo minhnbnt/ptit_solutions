@@ -4,14 +4,16 @@
 
 using u64 = unsigned long long;
 
-bool has_rigtriangle(std::vector<u64> &vec) {
+bool has_rigtriangle(std::vector<u64> vec) {
 
 	for (u64 &x : vec) x *= x;
 	std::sort(vec.begin(), vec.end());
 
-	for (int i = vec.size(); i > -0; --i) {
-		u64 &hypo = vec[i];
-		int left = 0, right = i - 1;
+	for (int i = vec.size(); i > 0; --i) {
+
+		u64 &hypo = vec[i - 1];
+		int left = 0, right = i - 2;
+
 		while (left != right) {
 			if (vec[left] + vec[right] > hypo) --right;
 			else if (vec[left] + vec[right] < hypo) ++left;

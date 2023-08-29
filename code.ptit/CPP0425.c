@@ -15,29 +15,23 @@ int main(void) {
 		unsigned ele, i, j = 0;
 		scanf("%u", &ele);
 
-		int arr[ele];
+		int arr[ele], buf[ele];
 		for (i = 0; i < ele; ++i) {
 			scanf("%d", &arr[i]);
 		}
+		qsort(arr, ele, sizeof(int), cmp);
 
-		while (1) {
-
-			char flag = 1;
-
-			for (i = 1; i < ele; ++i)
-				if ((i % 2 == 1 && arr[i] < arr[i - 1]) ||
-				    (i % 2 == 0 && arr[i] > arr[i - 1])) {
-					int temp = arr[i];
-					arr[i] = arr[i - 1];
-					arr[i - 1] = temp;
-					flag = 0;
-				}
-
-			if (flag) break;
+		for (i = 0; i < ele; i += 2) {
+			buf[i] = arr[j];
+			++j;
+		}
+		for (i = 1; i < ele; i += 2) {
+			buf[i] = arr[j];
+			++j;
 		}
 
 		for (i = 0; i < ele; ++i) {
-			printf("%d ", arr[i]);
+			printf("%d ", buf[i]);
 		}
 
 		putchar('\n');
