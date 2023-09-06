@@ -3,20 +3,19 @@
 #include <vector>
 
 using i64 = long long;
-using u64 = unsigned long long;
 
-u64 count_gap(std::vector<i64> vec, i64 target) {
+size_t count_gap(std::vector<i64> vec, const i64 &target) {
 
-	u64 result = 0;
+	size_t result = 0;
 
 	std::sort(vec.begin(), vec.end());
-	for (size_t i = 0; i < vec.size(); ++i) {
-		i64 &x = vec[i];
 
-		size_t pos = i;
-		while (pos >= 0) {
-			--pos;
-		}
+	for (size_t i = 0; i < vec.size(); ++i) {
+
+		auto it =
+		    std::upper_bound(vec.begin(), vec.begin() + i, vec[i] - target);
+
+		result += vec.begin() - it + i;
 	}
 
 	return result;
@@ -30,7 +29,7 @@ int main(void) {
 	while (cases--) {
 
 		i64 target;
-		size_t ele;
+		size_t ele, i, j;
 		std::cin >> ele >> target;
 
 		std::vector<i64> vec(ele);

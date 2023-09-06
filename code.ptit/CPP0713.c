@@ -1,3 +1,21 @@
+/*
+Cho số tự nhiên N. Hãy đưa ta các hoán vị của 1, 2, .., N.
+
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số N được viết trên 1
+dòng. T, N thỏa mãn ràng buộc :1 ≤ T, N ≤ 20.
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+Input:
+1
+3
+
+Output:
+123 132 213 231 312 321
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
