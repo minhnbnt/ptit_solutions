@@ -32,9 +32,12 @@ void inds(NhanVien *ds, size_t size) {
 
 	for (size_t i = 0; i < size; ++i) {
 		std::cout << std::setw(5) << std::setfill('0') << ds[i].id << ' ';
+
 		std::cout << ds[i].name << (ds[i].gender == male ? " Nam " : " Nu ")
 		          << ds[i].birth << ' ' << ds[i].addr << ' ';
+
 		std::cout << std::setw(10) << ds[i].tax_id << ' ';
+
 		std::cout << std::setw(0) << ds[i].reg_date << '\n';
 	}
 
