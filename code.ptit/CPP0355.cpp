@@ -71,6 +71,7 @@ int main(void) {
 
 		std::cout << buf << (need_proper ? '\n' : ' ');
 	}
+	std::cout.flush();
 
 	return 0;
 }

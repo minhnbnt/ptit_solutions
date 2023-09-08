@@ -33,6 +33,9 @@ Output:
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 
@@ -53,10 +56,13 @@ int main(void) {
 					std::cout << "  ";
 					continue;
 				}
+
 				std::cout << arr[i][j] << ' ';
 			}
+
 			std::cout.put(0xa);
 		}
+
 		std::cout.flush();
 	}
 

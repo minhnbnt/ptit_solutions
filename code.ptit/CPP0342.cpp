@@ -31,6 +31,9 @@ int main(void) {
 
 	using namespace std;
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr), cout.tie(nullptr);
+
 	unsigned cases;
 	cin >> cases;
 
@@ -47,12 +50,15 @@ int main(void) {
 				mset.insert(c);
 				continue;
 			}
+
 			if (isdigit(c)) {
 				sum += c - '0';
 			}
 		}
 
-		for (const char &c : mset) cout.put(c);
+		for (const char &c : mset) {
+			cout.put(c);
+		}
 		cout << sum << endl;
 	}
 

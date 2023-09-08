@@ -49,11 +49,14 @@ bool is_lucky_number(std::string num) {
 	if (num == "9") return true;
 	if (num.length() == 1) return false;
 
-	u64 sum = sum_of_digits(num);
+	const u64 sum = sum_of_digits(num);
 	return is_lucky_number(std::to_string(sum));
 }
 
 int main(void) {
+
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
 	unsigned cases;
 	std::cin >> cases;

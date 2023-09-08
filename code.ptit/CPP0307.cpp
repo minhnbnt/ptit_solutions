@@ -29,6 +29,9 @@ aaa ab abc zzz
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 
@@ -37,6 +40,7 @@ int main(void) {
 		std::string buf1, buf2, str;
 		std::getline(std::cin >> std::ws, buf1);
 		std::getline(std::cin >> std::ws, buf2);
+
 		std::istringstream iss1(buf1), iss2(buf2);
 
 		std::set<std::string> set;

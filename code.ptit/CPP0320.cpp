@@ -43,6 +43,9 @@ int is_full_number(std::string s) {
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 
@@ -52,8 +55,10 @@ int main(void) {
 		std::cin >> std::ws >> input;
 
 		int result = is_full_number(input);
+
 		if (result == -1) std::cout << "INVALID";
 		else std::cout << (result ? "YES" : "NO");
+
 		std::cout << std::endl;
 	}
 

@@ -29,12 +29,12 @@ Output:
 #include <unordered_set>
 #include <vector>
 
-unsigned count_two_sum(std::vector<int> nums, int target) {
+unsigned count_two_sum(const std::vector<int> &nums, int target) {
 
 	unsigned count = 0;
 
 	std::unordered_multiset<int> mtset;
-	for (int x : nums) {
+	for (const int &x : nums) {
 
 		count += mtset.count(target - x);
 

@@ -70,6 +70,9 @@ i64 gen_result(int x, std::vector<int> a) {
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 

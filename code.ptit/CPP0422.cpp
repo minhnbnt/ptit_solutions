@@ -30,21 +30,23 @@ Output:
 #include <iostream>
 #include <vector>
 
-template <typename T> int comparator(const T &a, const T &b) {
+using i64 = long long;
+
+int comparator(const i64 &a, const i64 &b) {
 	return b == 0;
 }
 
 int main(void) {
 
-	using i64 = long long;
-	using u64 = unsigned long long;
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
 	unsigned cases;
 	std::cin >> cases;
 
 	while (cases--) {
 
-		u64 n;
+		size_t n;
 		std::cin >> n;
 
 		std::vector<i64> vec(n);
@@ -52,7 +54,7 @@ int main(void) {
 			std::cin >> i;
 		}
 
-		std::stable_sort(vec.begin(), vec.end(), comparator<i64>);
+		std::stable_sort(vec.begin(), vec.end(), comparator);
 		for (const i64 &x : vec) {
 			std::cout << x << ' ';
 		}

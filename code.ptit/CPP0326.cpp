@@ -1,3 +1,25 @@
+/*
+Cho hai số rất lớn X và Y được biểu diễn như hai xâu ký tự. Nhiệm vụ của bạn là
+tìm X × Y?
+
+Input:
+
+Dòng đầu tiên đưa vào số lượng test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi test gồm hai dòng: dòng thứ nhất đưa
+xâu X; dòng tiếp theo đưa vào xâu Y.
+T, X, Y  thỏa mãn ràng buộc : 1≤T≤1000 ≤length(X), length(Y)≤10^3.
+
+Output:
+Đưa ra số kết quả mỗi test theo từng dòng.
+
+Input:
+1
+2 3
+
+Output:
+6
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -74,6 +96,9 @@ const std::string product(const std::string &a, std::string b) {
 }
 
 auto main(void) -> int {
+
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
 	unsigned cases;
 	std::cin >> cases;

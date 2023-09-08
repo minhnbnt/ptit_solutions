@@ -1,3 +1,23 @@
+/*
+Cho số tự nhiên m và số nguyên s không âm. Nhiệm vụ của bạn là tìm số bé nhất và
+lớn nhất có m chữ số và tổng chữ số bằng s.
+
+Input:
+Dòng đầu gồm 2 số m và s (1 ≤ m ≤ 100, 0 ≤ s ≤ 900).
+
+Output:
+In ra kết quả của bài toán.
+Số đầu tiên là số bé nhất, số thứ hai là số lớn nhất. Nếu không có đáp án in ra
+“-1 -1”.
+
+Example
+Input:
+2 15
+
+Output:
+69 96
+*/
+
 #include <iostream>
 #include <string>
 
@@ -44,6 +64,9 @@ const std::string gen_min(const std::string &max) {
 }
 
 int main(void) {
+
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
 	unsigned digits, sum;
 	std::cin >> digits >> sum;

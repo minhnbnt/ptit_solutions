@@ -44,6 +44,9 @@ std::string &upper(std::string &s) {
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	std::string full_name, str;
 	std::getline(std::cin, full_name);
 	std::istringstream iss(full_name);

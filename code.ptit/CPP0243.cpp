@@ -36,6 +36,9 @@ int main(void) {
 
 	using i64 = long long;
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 

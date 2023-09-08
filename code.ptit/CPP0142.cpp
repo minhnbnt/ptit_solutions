@@ -1,3 +1,32 @@
+/*
+Juggernaut được cô giáo Disruptor dạy toán, cô giáo định nghĩa một hàm f(x) như
+sau:
+
+Với  t là số lượng các số tự nhiên k (1 <= k <= x) thỏa mãn nguyên tố cùng nhau
+với x, nếu t là nguyên tố thì f(x) = 1, ngược lại f(x) = 0.
+
+Disruptor cho Juggernaut một số nguyên dương x, yêu cầu anh cho biết giá trị của
+hàm f(x), nếu trả lời sai thì Jug sẽ bị  cô trả về nhà, Jug không muốn về nhà,
+các bạn hãy giúp Jug giải bài toán này.
+
+Input
+Dòng đầu tiên chứa số bộ test T (T <= 10).
+Mỗi test gồm một dòng chứa số x (1 <= x <= 10^5).
+
+Output
+In ra kết quả mỗi test trên một dòng là giá trị của hàm f(x).
+
+Example:
+Input:
+2
+2
+3
+
+Output:
+0
+1
+*/
+
 #include <complex>
 #include <iostream>
 #include <vector>
@@ -12,6 +41,9 @@ bool is_prime(unsigned x) {
 }
 
 int main(void) {
+
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
 	unsigned cases;
 	std::cin >> cases;
