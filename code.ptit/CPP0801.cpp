@@ -21,8 +21,10 @@ int main(void) {
 	std::string buf;
 
 	while (std::getline(ifs, buf)) {
-		ofs << buf << std::endl;
+		ofs << buf << '\n';
 	}
+
+	ofs.flush();
 
 	return 0;
 }

@@ -47,7 +47,7 @@ int main(void) {
 		for (i = 0; i < row; ++i)
 			for (j = 0; j < col; ++j) {
 
-				if (arr[i][j] == 0) continue;
+				if (arr[i][j] != 1) continue;
 
 				for (k = 0; k < row; ++k) {
 					fill[k][j] = 1;

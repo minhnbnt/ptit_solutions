@@ -84,30 +84,33 @@ HD003 Tran Van Binh Phung Khoang-Nam Tu Liem-Ha Noi Ao khoac nam Cai
 #include <string>
 #include <unordered_map>
 
-enum gender { male, female };
+enum Gender { male, female };
 using u64 = unsigned long long;
 
-std::string get_idstr(unsigned id, const std::string &head) {
-
-	std::string str = std::to_string(id);
-	while (str.length() < 3) str = '0' + str;
-
-	return head + str;
-}
-
-struct MatHang {
+struct Obj {
 
 	unsigned id;
+
+	static const std::string get_idstr(unsigned id, const std::string head) {
+
+		std::string result = std::to_string(id);
+		while (result.length() < 3) result = '0' + result;
+
+		return head + result;
+	}
+};
+
+struct MatHang : Obj {
+
 	u64 gia_mua, gia_ban;
 	std::string ten, don_vi;
 
 	friend std::istream &operator>>(std::istream &, MatHang &);
 };
 
-struct KhachHang {
+struct KhachHang : Obj {
 
-	unsigned id;
-	gender gioi_tinh;
+	Gender gioi_tinh;
 	std::string ten, ngay_sinh, dia_chi;
 
 	friend std::istream &operator>>(std::istream &, KhachHang &);
@@ -120,20 +123,20 @@ std::istream &operator>>(std::istream &is, KhachHang &kh) {
 
 	static unsigned maKH = 0;
 	kh.id = ++maKH;
-	std::getline(is >> std::ws, kh.ten);
 
-	static const std::unordered_map<std::string, gender> gend_mp = {
+	std::string gender;
+
+	for (std::string *s : { &kh.ten, &gender, &kh.ngay_sinh, &kh.dia_chi }) {
+		std::getline(is >> std::ws, *s);
+	}
+
+	static const std::unordered_map<std::string, Gender> gend_mp = {
 		{ "Nam", male }, { "Nu", female }
 	};
-	std::string gender;
-	std::getline(is >> std::ws, gender);
+
 	kh.gioi_tinh = gend_mp.at(gender);
 
-	std::getline(is >> std::ws, kh.ngay_sinh);
-
-	std::getline(is >> std::ws, kh.dia_chi);
-
-	dskh.emplace(get_idstr(maKH, "KH"), &kh);
+	dskh.emplace(Obj::get_idstr(maKH, "KH"), &kh);
 
 	return is;
 }
@@ -144,19 +147,18 @@ std::istream &operator>>(std::istream &is, MatHang &mh) {
 	mh.id = ++maMH;
 
 	std::getline(is >> std::ws, mh.ten);
-
 	std::getline(is >> std::ws, mh.don_vi);
 
 	is >> mh.gia_mua >> mh.gia_ban;
 
-	dsmh.emplace(get_idstr(maMH, "MH"), &mh);
+	dsmh.emplace(Obj::get_idstr(maMH, "MH"), &mh);
 
 	return is;
 }
 
-struct HoaDon {
+struct HoaDon : Obj {
 
-	unsigned so_luong, id;
+	unsigned so_luong;
 	std::string maKH, maMH;
 
 	friend std::istream &operator>>(std::istream &is, HoaDon &hd) {
@@ -175,21 +177,20 @@ struct HoaDon {
 		const KhachHang &kh = *dskh[hd.maKH];
 		const u64 thanh_tien = hd.so_luong * mh.gia_ban;
 
-		os << get_idstr(hd.id, "HD") << ' ';
+		os << Obj::get_idstr(hd.id, "HD") << ' ';
 
 		os << kh.ten << ' ' << kh.dia_chi << ' ';
 
 		os << mh.ten << ' ' << mh.don_vi << ' ';
 		os << mh.gia_mua << ' ' << mh.gia_ban << ' ';
 
-		os << hd.so_luong << ' ' << thanh_tien << char(0xa);
+		os << hd.so_luong << ' ' << thanh_tien << '\n';
 
 		return os;
 	}
 };
 
-using std::cin;
-using std::cout;
+using std::cin, std::cout;
 
 // Bài tập này yêu cầu sử dụng hàm main cho sẵn như sau:
 int main() {

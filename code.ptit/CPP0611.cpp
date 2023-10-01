@@ -56,8 +56,7 @@ public:
 	}
 };
 
-using std::cin;
-using std::cout;
+using std::cin, std::cout;
 
 int main() {
 	SinhVien ds[50];

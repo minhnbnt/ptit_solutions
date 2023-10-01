@@ -32,6 +32,9 @@ int main(void) {
 	using namespace std;
 	using i64 = long long;
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr), cout.tie(nullptr);
+
 	unsigned cases;
 	cin >> cases;
 

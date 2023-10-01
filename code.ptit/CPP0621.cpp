@@ -54,8 +54,7 @@ using namespace std;
 
 struct student {
 
-	string id, grade;
-	string name, email;
+	string id, grade, name, email;
 
 	student(string id, string name, string grade, string email)
 	    : id(id), name(name), grade(grade), email(email) {}
@@ -88,10 +87,12 @@ int main(void) {
 
 	sort(vec.begin(), vec.end(), cmp);
 
-	for (const student &s : vec)
-		cout << s.id << ' ' << s.name << ' ' //
-		     << s.grade << ' ' << s.email << '\n';
-	cout << flush;
+	for (const student &s : vec) {
+		cout << s.id << ' ' << s.name << ' ';
+		cout << s.grade << ' ' << s.email << '\n';
+	}
+
+	cout.flush();
 
 	return 0;
 }

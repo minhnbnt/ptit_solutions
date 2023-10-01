@@ -29,7 +29,6 @@ trinh
 tuong
 */
 
-#include <cctype>
 #include <fstream>
 #include <iostream>
 #include <set>
@@ -42,15 +41,18 @@ int main(void) {
 	std::set<std::string> words;
 
 	while (ifs >> buf) {
+
 		for (char &c : buf) {
 			c = tolower(c);
 		}
+
 		words.insert(buf);
 	}
 
-	for (std::string word : words) {
+	for (const std::string &word : words) {
 		std::cout << word << '\n';
 	}
+	std::cout.flush();
 
 	return 0;
 }

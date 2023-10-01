@@ -16,13 +16,14 @@ int main(void) {
 
 		std::set<int> set;
 		while (ele--) {
+
 			int x;
 			std::cin >> x;
+
 			set.insert(x);
 		}
 
-		const int &L = *set.begin();
-		const int &R = *set.rbegin();
+		const int &L = *set.cbegin(), &R = *set.crbegin();
 
 		std::cout << R - L - set.size() + 1 << std::endl;
 	}

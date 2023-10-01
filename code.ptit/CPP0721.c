@@ -43,6 +43,7 @@ int main(void) {
 		int arr[n];
 		unsigned tmp[n], result = 0;
 		for (i = 0; i < n; ++i) {
+
 			tmp[i] = 0;
 			scanf("%d", &arr[i]);
 

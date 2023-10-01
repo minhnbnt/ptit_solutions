@@ -73,8 +73,7 @@ std::ostream &operator<<(std::ostream &os, const SinhVien &s) {
 	return os;
 }
 
-using std::cin;
-using std::cout;
+using std::cin, std::cout;
 
 int main() {
 	SinhVien a;
