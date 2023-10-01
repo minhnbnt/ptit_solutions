@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	int a[n * n];
+	for (int i = 0; i < n * n; i++) scanf("%d", &a[i]);
+	for (int i = 0; i < n * n; i++)
+		for (int j = i + 1; j < n * n; j++)
+			if (a[i] < a[j]) {
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) printf("%d ", a[i * n + j]);
+		printf("\n");
+	};
+	return 0;
+}
