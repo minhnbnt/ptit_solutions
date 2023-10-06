@@ -5,6 +5,8 @@ AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
 ColumnLimit: 80
 Cpp11BracedListStyle: false
+EmptyLineAfterAccessModifier: Leave
+EmptyLineBeforeAccessModifier: Leave
 IncludeBlocks: Regroup
 IndentWidth: 4
 TabWidth: 4
