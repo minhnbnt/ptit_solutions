@@ -89,10 +89,9 @@ struct Candidate {
 
 	void print(void) {
 
-		std::cout << id << ' ' << this->stu_id << ' ' << this->name << ' ';
+		std::cout << id << ' ' << stu_id << ' ' << name << ' ';
 
-		std::cout << this->grade << ' ' << this->email << ' ' << this->corp
-		          << '\n';
+		std::cout << grade << ' ' << email << ' ' << corp << '\n';
 	}
 };
 

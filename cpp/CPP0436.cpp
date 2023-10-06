@@ -52,7 +52,7 @@ int main(void) {
 
 		for (int x : vec) {
 
-			std::set<int>::iterator it = std::next(set.find(x));
+			auto it = std::next(set.find(x));
 
 			if (it != set.end()) {
 				std::cout << *it << ' ';

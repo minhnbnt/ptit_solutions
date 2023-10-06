@@ -19,6 +19,7 @@ void nhap(struct NhanVien &a) {
 	a.gtinh = male;
 	std::string gtinh;
 	std::getline(std::cin >> std::ws, gtinh);
+
 	if (gtinh == "Nu") {
 		a.gtinh = female;
 	} else if (gtinh != "Nam") {

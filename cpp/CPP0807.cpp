@@ -36,8 +36,11 @@ namespace solution {
 std::ifstream ifs("DATA.in");
 
 class IntSet {
+
 	std::unordered_set<int> set;
+
 public:
+
 	std::set<int> elements(void) {
 		std::set<int> ordered(set.begin(), set.end());
 		return ordered;

@@ -35,6 +35,7 @@ int main(void) {
 	while (std::cin >> x)
 
 		if (mp.find(x) == mp.end()) {
+
 			vec.push_back(x);
 			mp.emplace(x, 1);
 

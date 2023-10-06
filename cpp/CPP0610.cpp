@@ -32,7 +32,9 @@ i64 gcd(i64 a, i64 b) {
 class PhanSo {
 
 	i64 tu, mau;
+
 public:
+
 	PhanSo(i64 tu = 0, i64 mau = 1) : tu(tu), mau(mau) {}
 
 	PhanSo &operator+(PhanSo b) {

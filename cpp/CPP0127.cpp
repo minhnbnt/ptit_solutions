@@ -52,12 +52,17 @@ class solution {
 
 		return vec[num];
 	}
+
 public:
+
 	static std::pair<u64, u64> calculate(u64 target) {
 
 		for (u64 i = 2; i <= target / 2; i++) {
+
 			if (!is_prime(i)) continue;
+
 			u64 j = target - i;
+
 			if (is_prime(j)) return { i, j };
 		}
 

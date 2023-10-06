@@ -5,21 +5,22 @@ typedef struct {
 	int x, y;
 } Point;
 
-double distance(Point a, Point b) {
+const double distance(Point a, Point b) {
 	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
-double area_of_triangle(Point a, Point b, Point c) {
+const double area_of_triangle(Point a, Point b, Point c) {
 
-	double ab = distance(a, b);
-	double ac = distance(a, c);
-	double bc = distance(b, c);
+	const double ab = distance(a, b);
+	const double ac = distance(a, c);
+	const double bc = distance(b, c);
 
-	double P = (ab + ac + bc) / 2;
+	const double P = (ab + ac + bc) / 2;
+
 	return sqrt(P * (P - ab) * (P - bc) * (P - ac));
 }
 
-double area_of(Point *arr, size_t points) {
+const double area_of(Point *arr, size_t points) {
 
 	double result = 0;
 
@@ -38,7 +39,7 @@ int main(void) {
 	while (cases--) {
 
 		size_t points, i;
-		scanf("%lu", &points);
+		scanf("%zu", &points);
 
 		Point arr[points];
 		for (i = 0; i < points; ++i) {

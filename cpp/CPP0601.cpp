@@ -43,7 +43,9 @@ class SinhVien {
 
 	float GPA;
 	string HoTen, Lop, NgSinh;
+
 public:
+
 	void nhap(void) {
 
 		getline(cin >> ws, this->HoTen);

@@ -24,7 +24,9 @@ class SinhVien {
 
 		return propered;
 	}
+
 public:
+
 	friend std::istream &operator>>(std::istream &is, SinhVien &s) {
 
 		static size_t id = 0;

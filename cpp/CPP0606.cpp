@@ -43,7 +43,9 @@ class NhanVien {
 	unsigned long long masoThue;
 	string hoTen, gtinh, diaChi;
 	string ngaySinh, ngayKiHD;
+
 public:
+
 	string maNV_str(void) {
 		string str = to_string(maNV);
 		while (str.length() < 5) str = '0' + str;

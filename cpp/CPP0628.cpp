@@ -5,9 +5,11 @@
 
 class Corp {
 
-	std::string id, name;
 	unsigned candidates;
+	std::string id, name;
+
 public:
+
 	void input(void) {
 
 		std::cin >> std::ws >> id;

@@ -8,7 +8,9 @@ class Teacher {
 
 	size_t id;
 	std::string name, subj;
+
 public:
+
 	const std::string &get_name(void) const {
 		return name;
 	}

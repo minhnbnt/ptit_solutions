@@ -7,7 +7,9 @@ class Item {
 	size_t id;
 	std::string name, category;
 	long double buy, sell;
+
 public:
+
 	void input(void) {
 
 		static size_t id = 0;

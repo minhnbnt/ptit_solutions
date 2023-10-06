@@ -9,10 +9,13 @@ bool is_sphenic(u64 x) {
 	for (u64 i = 2; i <= sqrt(x); ++i) {
 		unsigned count = 0;
 		while (x % i == 0) {
+
 			x /= i;
 
 			--remaining, ++count;
+
 			if (count > 1) return false;
+
 			if (remaining == 0) {
 				break;
 			}

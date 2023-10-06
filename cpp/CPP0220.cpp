@@ -52,6 +52,7 @@ int main(void) {
 
 		for (i = 0; i < rank; ++i) {
 			for (j = 0; j < rank; ++j) {
+
 				if (i != 0 && j != 0 && i != rank - 1 && j != rank - 1) {
 					std::cout << "  ";
 					continue;

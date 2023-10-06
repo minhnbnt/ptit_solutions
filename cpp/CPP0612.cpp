@@ -3,10 +3,12 @@
 
 class SinhVien {
 
-	float GPA;
-	unsigned id;
 	std::string name, grade, birth;
+	unsigned id;
+	float GPA;
+
 public:
+
 	const std::string get_id(void) const {
 
 		std::string id = std::to_string(this->id);

@@ -6,7 +6,9 @@
 class Student {
 
 	std::string id, name, grade, email;
+
 public:
+
 	static int comparator(const Student &s1, const Student &s2) {
 
 		if (s1.grade != s2.grade) {

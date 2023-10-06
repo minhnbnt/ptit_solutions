@@ -4,7 +4,7 @@
 
 using u64 = unsigned long long;
 
-bool has_rigtriangle(std::vector<u64> vec) {
+bool has_righttriangle(std::vector<u64> vec) {
 
 	for (u64 &x : vec) x *= x;
 	std::sort(vec.begin(), vec.end());
@@ -39,7 +39,7 @@ int main(void) {
 			std::cin >> item;
 		}
 
-		std::cout << (has_rigtriangle(vec) ? "YES" : "NO") << std::endl;
+		std::cout << (has_righttriangle(vec) ? "YES" : "NO") << std::endl;
 	}
 
 	return 0;

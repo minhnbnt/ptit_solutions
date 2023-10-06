@@ -6,7 +6,9 @@
 class Student {
 
 	std::string id, name, grade, email;
+
 public:
+
 	void print(void) const {
 		std::cout << id << ' ' << name << ' ';
 		std::cout << grade << ' ' << email << '\n';

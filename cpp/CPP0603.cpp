@@ -11,9 +11,12 @@ void proper(std::string &s) {
 }
 
 class SinhVien {
+
 	std::string name, grade, birth;
 	float GPA;
+
 public:
+
 	friend std::istream &operator>>(std::istream &is, SinhVien &s);
 	friend std::ostream &operator<<(std::ostream &os, const SinhVien &s);
 };
