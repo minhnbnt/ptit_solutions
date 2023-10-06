@@ -3,7 +3,7 @@ AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
-ColumnLimit: 80
+ColumnLimit: 100
 Cpp11BracedListStyle: false
 EmptyLineAfterAccessModifier: Leave
 EmptyLineBeforeAccessModifier: Leave
