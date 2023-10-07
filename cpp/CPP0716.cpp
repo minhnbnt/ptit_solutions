@@ -75,7 +75,7 @@ int main(void) {
 
 		std::vector<std::vector<int>> vec(rank);
 		for (std::vector<int> &v : vec) {
-			v = std::vector<int>(rank);
+			v.resize(rank);
 			for (int &x : v) {
 				std::cin >> x;
 			}

@@ -29,7 +29,7 @@ void nhap(SinhVien &s) {
 	std::cin >> s.GPA;
 }
 
-void in(SinhVien &s) {
+void in(const SinhVien &s) {
 	std::cout << "B20DCCN001 " << s.name << ' ' << s.grade //
 	          << ' ' << s.birth << ' ' << ' ';
 
