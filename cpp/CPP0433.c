@@ -18,19 +18,20 @@ typedef struct {
 } Hash_map;
 
 void Hash_map_init(Hash_map *map) {
+
 	const size_t size = map->bucket_size;
 	map->bucket = (Node **)calloc(size, sizeof(Node *));
 }
 
 void free_node(Node *current) {
 
-	if (current == NULL) {
-		return;
+	while (current != NULL) {
+
+		Node *next = current->next;
+
+		free(current);
+		current = next;
 	}
-
-	free_node(current->next);
-
-	free(current);
 }
 
 void add_element(Hash_map *map, long long value) {
@@ -42,7 +43,7 @@ void add_element(Hash_map *map, long long value) {
 	while (target != NULL) {
 
 		if (target->value == value) {
-			++(target->appear);
+			++target->appear;
 			return;
 		}
 
@@ -58,7 +59,7 @@ void add_element(Hash_map *map, long long value) {
 	map->bucket[index] = target;
 }
 
-int comparator(const void *a, const void *b) {
+inline int comparator(const void *a, const void *b) {
 
 	Node *left = *(Node **)a, *right = *(Node **)b;
 
@@ -117,8 +118,8 @@ int main(void) {
 
 		for (i = 0; i < size; ++i) {
 
-			const long long value = arr[i]->value;
 			size_t appear = arr[i]->appear;
+			const long long value = arr[i]->value;
 
 			while (appear-- > 0) {
 				printf("%lld ", value);
