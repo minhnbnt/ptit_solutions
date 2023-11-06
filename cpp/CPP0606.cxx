@@ -1,8 +1,5 @@
 #include <iostream>
-#include <mutex>
 #include <string>
-
-enum Gender { male, female };
 
 class NhanVien {
 
