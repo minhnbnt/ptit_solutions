@@ -34,17 +34,14 @@ Output:
 
 typedef long long i64;
 
-i64 ll_abs(i64 x) {
-	if (x < 0) x = -x;
-	return x;
-}
-
 i64 target;
-int cmp(const void *a, const void *b) {
-	i64 x = ll_abs(*(i64 *)a - target);
-	i64 y = ll_abs(*(i64 *)b - target);
 
-	return x - y;
+inline int comparator(const void *a, const void *b) {
+
+	const i64 a_gap = llabs(*(const i64 *)a - target);
+	const i64 b_gap = llabs(*(const i64 *)b - target);
+
+	return a_gap - b_gap;
 }
 
 int main(void) {
@@ -54,15 +51,15 @@ int main(void) {
 
 	while (cases--) {
 
-		i64 ele, i;
-		scanf("%lld%lld", &ele, &target);
+		size_t ele, i;
+		scanf("%zu%lld", &ele, &target);
 
 		i64 arr[ele];
 		for (i = 0; i < ele; ++i) {
 			scanf("%lld", &arr[i]);
 		}
 
-		qsort(arr, ele, sizeof(i64), cmp);
+		qsort(arr, ele, sizeof(i64), comparator);
 		for (i = 0; i < ele; ++i) {
 			printf("%lld ", arr[i]);
 		}
