@@ -4,8 +4,7 @@
 
 class Solution {
 public:
-	static std::vector<int> maxSlidingWindow(const std::vector<int> &vec,
-	                                         const int length) {
+	static std::vector<int> maxSlidingWindow(const std::vector<int> &vec, size_t length) {
 
 		std::vector<int> result;
 		std::deque<size_t> deq;
@@ -33,12 +32,15 @@ public:
 
 int main(void) {
 
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+
 	unsigned cases;
 	std::cin >> cases;
 
 	while (cases--) {
 
-		int ele, length, i;
+		size_t ele, length;
 		std::cin >> ele >> length;
 
 		std::vector<int> vec(ele);
@@ -46,7 +48,7 @@ int main(void) {
 			std::cin >> x;
 		}
 
-		for (int &x : Solution::maxSlidingWindow(vec, length)) {
+		for (int x : Solution::maxSlidingWindow(vec, length)) {
 			std::cout << x << ' ';
 		}
 		std::cout << std::endl;

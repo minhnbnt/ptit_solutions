@@ -215,6 +215,7 @@ struct ostream {
 my_iostream::istream cin;
 my_iostream::ostream cout;
 
+// Bài tập này yêu cầu sử dụng hàm main cho sẵn như sau:
 int main() {
 	KhachHang dskh[25];
 	MatHang dsmh[45];

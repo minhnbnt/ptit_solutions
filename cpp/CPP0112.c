@@ -36,10 +36,9 @@ int main(void) {
 		double b_x, b_y;
 		scanf("%lf%lf", &b_x, &b_y);
 
-		double distance = sqrt(pow(a_x - b_x, 2) + pow(a_y - b_y, 2));
+		const double distance = sqrt(pow(a_x - b_x, 2) + pow(a_y - b_y, 2));
 
 		printf("%.4lf\n", distance);
-
 		fflush(stdout);
 	}
 
