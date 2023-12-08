@@ -35,9 +35,7 @@ void nhap(SinhVien &sv) {
 
 void sap_xep(SinhVien *ds, const size_t &size) {
 
-	static auto comparator = [](const SinhVien &s1, const SinhVien &s2) {
-		return s1.id < s2.id;
-	};
+	static auto comparator = [](const SinhVien &s1, const SinhVien &s2) { return s1.id < s2.id; };
 
 	std::sort(ds, ds + size, comparator);
 }

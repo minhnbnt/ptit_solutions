@@ -17,8 +17,7 @@ int main(void) {
 
 			if (input.size() < 3) break;
 
-			else if (input[i] == '1' && input[i + 1] == '0' &&
-			         input[i + 2] == '0') {
+			else if (input[i] == '1' && input[i + 1] == '0' && input[i + 2] == '0') {
 				input.erase(i, 3);
 				result += 3;
 				i = -1;

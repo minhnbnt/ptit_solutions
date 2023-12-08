@@ -58,7 +58,7 @@ class NhanVien {
 	unsigned long long tax_code;
 	unsigned id;
 	Gender gen;
-public:
+	public:
 	bool operator()(const NhanVien &nv1, const NhanVien &nv2) {
 		return Date::comparator(nv1.birth, nv2.birth);
 	}
@@ -80,9 +80,8 @@ public:
 		nv.birth = Date(birth);
 		nv.reg_date = Date(reg_date);
 
-		static const std::unordered_map<std::string, Gender> gen_map = {
-			{ "Nam", male }, { "Nu", female }
-		};
+		static const std::unordered_map<std::string, Gender> gen_map = { { "Nam", male },
+			                                                             { "Nu", female } };
 		nv.gen = gen_map.at(gender);
 
 		return is;

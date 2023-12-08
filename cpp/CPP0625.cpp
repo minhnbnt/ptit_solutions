@@ -9,7 +9,7 @@ class Teacher {
 	size_t id;
 	std::string name, last_name, subject;
 
-public:
+	public:
 
 	static int comparator(const Teacher &t1, const Teacher &t2) {
 

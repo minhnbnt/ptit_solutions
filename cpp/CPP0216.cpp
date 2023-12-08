@@ -2,8 +2,7 @@
 #include <iostream>
 #include <vector>
 
-bool is_mountain(const std::vector<int>::iterator &it1,
-                 const std::vector<int>::iterator &it2) {
+bool is_mountain(const std::vector<int>::iterator &it1, const std::vector<int>::iterator &it2) {
 
 	const std::vector<int>::iterator it = std::is_sorted_until(it1, it2);
 

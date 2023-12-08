@@ -44,7 +44,7 @@ class SinhVien {
 	float GPA;
 	string HoTen, Lop, NgSinh;
 
-public:
+	public:
 
 	void nhap(void) {
 

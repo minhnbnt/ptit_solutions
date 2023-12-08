@@ -29,8 +29,7 @@ int main(void) {
 
 		for (const Student &s : vecS)
 			if (year % 100 == std::stoi(s.id.substr(1, 2))) {
-				std::cout << s.id << ' ' << s.name << ' ' << s.grade << ' '
-				          << s.email << '\n';
+				std::cout << s.id << ' ' << s.name << ' ' << s.grade << ' ' << s.email << '\n';
 			}
 
 		std::cout.flush();

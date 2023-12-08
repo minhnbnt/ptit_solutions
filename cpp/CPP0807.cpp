@@ -29,59 +29,60 @@ Output:
 #include <fstream>
 #include <iostream>
 #include <set>
-#include <unordered_set>
+#include <vector>
 
-namespace solution {
+struct IntSet : public std::set<int> {
 
-std::ifstream ifs("DATA.in");
+	template <class Container>
+	static IntSet from(const Container &container) {
 
-class IntSet {
-
-	std::unordered_set<int> set;
-
-public:
-
-	std::set<int> elements(void) {
-		std::set<int> ordered(set.begin(), set.end());
-		return ordered;
-	}
-
-	IntSet(unsigned ele) {
-		while (ele--) {
-			int x;
-			ifs >> x;
-
-			set.insert(x);
+		IntSet result;
+		for (const int x : container) {
+			result.insert(x);
 		}
+
+		return result;
 	}
 
-	IntSet sub_set_with(IntSet se) {
-		IntSet subset(0);
+	template <class Container>
+	IntSet union_with(const Container &other) const {
 
-		for (const int &x : se.set)
-			if (set.find(x) != set.end()) {
-				subset.set.insert(x);
+		IntSet result;
+		for (const int x : other) {
+
+			if (find(x) == end()) {
+				continue;
 			}
 
-		return subset;
+			result.insert(x);
+		}
+
+		return result;
 	}
 };
 
-} // namespace solution
-
 int main(void) {
 
-	using solution::IntSet;
+	std::ifstream ifs("DATA.in");
 
-	unsigned n, m;
-	solution::ifs >> n >> m;
+	size_t size_a, size_b;
+	ifs >> size_a >> size_b;
 
-	IntSet a(n), b(m);
-
-	for (int x : a.sub_set_with(b).elements()) {
-		std::cout << x << ' ';
+	std::vector<int> vecA(size_a);
+	for (int &x : vecA) {
+		ifs >> x;
 	}
 
+	std::vector<int> vecB(size_b);
+	for (int &x : vecB) {
+		ifs >> x;
+	}
+
+	const IntSet setA = IntSet::from(vecA);
+
+	for (const int x : setA.union_with(vecB)) {
+		std::cout << x << ' ';
+	}
 	std::cout << std::endl;
 
 	return 0;

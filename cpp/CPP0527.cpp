@@ -54,8 +54,7 @@ int main(void) {
 	}
 
 	std::sort(times.begin(), times.end(), comparator);
-	for (struct time t : times)
-		std::cout << t.hour << ' ' << t.minute << ' ' << t.second << '\n';
+	for (struct time t : times) std::cout << t.hour << ' ' << t.minute << ' ' << t.second << '\n';
 	std::cout << std::flush;
 
 	return 0;

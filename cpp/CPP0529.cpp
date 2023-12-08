@@ -106,8 +106,7 @@ void input(Candidate &c) {
 	static unsigned id = 0;
 	c.id = ++id;
 
-	for (std::string *buf :
-	     { &c.stu_id, &c.name, &c.grade, &c.email, &c.corp }) {
+	for (std::string *buf : { &c.stu_id, &c.name, &c.grade, &c.email, &c.corp }) {
 		std::getline(std::cin >> std::ws, *buf);
 	}
 

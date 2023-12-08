@@ -6,7 +6,7 @@ class Student {
 	float scores[3];
 	std::string id, name, grade;
 
-public:
+	public:
 
 	static int comparator(const Student &s1, const Student &s2) {
 		return s1.name < s2.name;

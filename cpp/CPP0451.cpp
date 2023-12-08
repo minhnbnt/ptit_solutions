@@ -26,8 +26,7 @@ int main(void) {
 		int target, nearest;
 		std::cin >> nearest >> target;
 
-		const int index =
-		    std::lower_bound(vec.begin(), vec.end(), target) - vec.begin();
+		const int index = std::lower_bound(vec.begin(), vec.end(), target) - vec.begin();
 		int left = index - nearest / 2, right = index;
 
 		if (vec[index] == target) ++right;

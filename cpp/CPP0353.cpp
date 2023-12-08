@@ -5,8 +5,7 @@
 
 unsigned get_key(const char c) {
 
-	static const char *map[] = { "ABC", "DEF",  "GHI", "JKL",
-		                         "MNO", "PQRS", "TUV", "WXYZ" };
+	static const char *map[] = { "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ" };
 
 	for (unsigned i = 2; i <= 9; ++i)
 		if (strchr(map[i - 2], toupper(c)) != NULL) {

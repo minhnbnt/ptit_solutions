@@ -31,7 +31,7 @@ void nhap(SinhVien &s) {
 
 void in(const SinhVien &s) {
 	std::cout << "B20DCCN001 " << s.name << ' ' << s.grade //
-	          << ' ' << s.birth << ' ' << ' ';
+			  << ' ' << s.birth << ' ' << ' ';
 
 	std::cout.precision(2);
 	std::cout << std::fixed << s.GPA << std::endl;

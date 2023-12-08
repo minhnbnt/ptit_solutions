@@ -25,15 +25,14 @@ class SinhVien {
 		return propered;
 	}
 
-public:
+	public:
 
 	friend std::istream &operator>>(std::istream &is, SinhVien &s) {
 
 		static size_t id = 0;
 		s.id = ++id;
 
-		for (std::string *s : { &s.name, &s.grade, &s.birth })
-			std::getline(is >> std::ws, *s);
+		for (std::string *s : { &s.name, &s.grade, &s.birth }) std::getline(is >> std::ws, *s);
 
 		s.birth = proper_date(s.birth);
 

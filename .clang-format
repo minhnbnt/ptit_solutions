@@ -1,4 +1,5 @@
 AccessModifierOffset: 0
+AlwaysBreakTemplateDeclarations: Yes
 AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse

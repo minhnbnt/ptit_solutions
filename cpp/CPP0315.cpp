@@ -15,8 +15,8 @@ int main(void) {
 		std::string input;
 		std::cin >> std::ws >> input;
 
-		std::string::reverse_iterator it1 = std::is_sorted_until(
-		    input.rbegin(), input.rend(), std::greater<char>());
+		std::string::reverse_iterator it1 =
+			std::is_sorted_until(input.rbegin(), input.rend(), std::greater<char>());
 
 		if (it1 == input.rend()) {
 			std::cout << -1 << std::endl;

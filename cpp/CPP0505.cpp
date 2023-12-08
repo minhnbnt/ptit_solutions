@@ -42,7 +42,7 @@ void in(const struct NhanVien &a) {
 	std::cout << (a.gtinh == male ? "Nam " : "Nu ");
 
 	std::cout << a.nsinh << ' ' << a.dchi << ' ' //
-	          << a.msothue << ' ' << a.nkihd << '\n';
+			  << a.msothue << ' ' << a.nkihd << '\n';
 }
 
 int main() {

@@ -7,7 +7,7 @@ class SinhVien {
 	unsigned id;
 	float GPA;
 
-public:
+	public:
 
 	const std::string get_id(void) const {
 

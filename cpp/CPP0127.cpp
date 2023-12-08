@@ -53,7 +53,7 @@ class solution {
 		return vec[num];
 	}
 
-public:
+	public:
 
 	static std::pair<u64, u64> calculate(u64 target) {
 

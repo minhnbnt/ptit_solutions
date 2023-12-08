@@ -15,7 +15,7 @@ class SinhVien {
 	std::string name, grade, birth;
 	float GPA;
 
-public:
+	public:
 
 	friend std::istream &operator>>(std::istream &is, SinhVien &s);
 	friend std::ostream &operator<<(std::ostream &os, const SinhVien &s);

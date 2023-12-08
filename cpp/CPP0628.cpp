@@ -8,7 +8,7 @@ class Corp {
 	unsigned candidates;
 	std::string id, name;
 
-public:
+	public:
 
 	void input(void) {
 
@@ -33,7 +33,7 @@ public:
 };
 
 class Solution {
-public:
+	public:
 	static void main(void) {
 
 		size_t num_corp;

@@ -30,7 +30,8 @@ Output:
 
 namespace solution {
 
-template <typename T> bool is_prime(T n) {
+template <typename T>
+bool is_prime(T n) {
 
 	static std::vector<bool> vec(2, false);
 
@@ -55,7 +56,8 @@ template <typename T> bool is_prime(T n) {
 	return vec[n];
 }
 
-template <typename T> std::pair<T, T> calculate(T target) {
+template <typename T>
+std::pair<T, T> calculate(T target) {
 
 	for (T i = 2; i <= target / 2; ++i) {
 

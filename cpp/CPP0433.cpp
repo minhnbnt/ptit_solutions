@@ -5,8 +5,7 @@
 
 using i64 = long long;
 
-int comparator(const std::pair<i64, size_t> &pr1,
-               const std::pair<i64, size_t> &pr2) {
+int comparator(const std::pair<i64, size_t> &pr1, const std::pair<i64, size_t> &pr2) {
 
 	if (pr1.second != pr2.second) {
 		return pr1.second > pr2.second;

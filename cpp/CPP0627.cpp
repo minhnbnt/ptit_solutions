@@ -9,7 +9,7 @@ class Teacher {
 	size_t id;
 	std::string name, subj;
 
-public:
+	public:
 
 	const std::string &get_name(void) const {
 		return name;
@@ -60,8 +60,7 @@ int main(void) {
 		std::string match;
 		std::getline(std::cin >> std::ws, match);
 
-		const std::regex regex(".*(" + match + ").*$",
-		                       std::regex_constants::icase);
+		const std::regex regex(".*(" + match + ").*$", std::regex_constants::icase);
 
 		std::cout << "DANH SACH GIANG VIEN THEO TU KHOA " << match << ":\n";
 

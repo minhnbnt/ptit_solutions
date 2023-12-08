@@ -40,8 +40,7 @@ int main(void) {
 		size_t eleA, eleB, i;
 		std::cin >> eleA >> eleB;
 
-		i64 maxA = std::numeric_limits<i64>::min(),
-		    minB = std::numeric_limits<i64>::max();
+		i64 maxA = std::numeric_limits<i64>::min(), minB = std::numeric_limits<i64>::max();
 
 		for (i = 0; i < eleA; ++i) {
 

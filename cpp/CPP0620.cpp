@@ -7,7 +7,7 @@ class Student {
 
 	std::string id, name, grade, email;
 
-public:
+	public:
 
 	static int comparator(const Student &s1, const Student &s2) {
 

@@ -57,7 +57,7 @@ struct student {
 	string id, grade, name, email;
 
 	student(string id, string name, string grade, string email)
-	    : id(id), name(name), grade(grade), email(email) {}
+		: id(id), name(name), grade(grade), email(email) {}
 };
 
 int cmp(const student &a, const student &b) {

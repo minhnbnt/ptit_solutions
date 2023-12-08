@@ -12,8 +12,7 @@ size_t count_gap(std::vector<i64> vec, const i64 &target) {
 
 	for (size_t i = 0; i < vec.size(); ++i) {
 
-		auto it =
-		    std::upper_bound(vec.begin(), vec.begin() + i, vec[i] - target);
+		auto it = std::upper_bound(vec.begin(), vec.begin() + i, vec[i] - target);
 
 		result += vec.begin() - it + i;
 	}
