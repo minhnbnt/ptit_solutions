@@ -29,9 +29,9 @@ Output:
 #include <iostream>
 #include <vector>
 
-bool in_fibs(unsigned x) {
+auto in_fibs(unsigned x) {
 
-	static std::vector<unsigned> vec{ 0, 1 };
+	static auto vec = std::vector<unsigned>{ 0, 1 };
 
 	if (x < vec.back()) {
 		return std::binary_search(vec.begin(), vec.end(), x);
@@ -39,8 +39,8 @@ bool in_fibs(unsigned x) {
 
 	while (x > vec.back()) {
 
-		const unsigned &last1 = vec.back();
-		const unsigned &last2 = *std::next(vec.rbegin());
+		const auto last1 = vec.back();
+		const auto last2 = *std::next(vec.rbegin());
 
 		vec.push_back(last1 + last2);
 
@@ -57,21 +57,21 @@ int main(void) {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr), std::cout.tie(nullptr);
 
-	unsigned cases;
+	auto cases = 0u;
 	std::cin >> cases;
 
 	while (cases--) {
 
-		unsigned ele;
+		auto ele = 0u;
 		std::cin >> ele;
 
-		std::vector<unsigned> vec(ele);
+		auto vec = std::vector<unsigned>(ele);
 
-		for (unsigned &x : vec) {
+		for (auto &x : vec) {
 			std::cin >> x;
 		}
 
-		for (const unsigned &x : vec) {
+		for (const auto x : vec) {
 			if (!in_fibs(x)) continue;
 			std::cout << x << ' ';
 		}
