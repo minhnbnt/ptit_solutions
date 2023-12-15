@@ -46,6 +46,7 @@ int main(void) {
 		for (i = 0; i < length; ++i) {
 			sum += arr[i];
 		}
+
 		size_t start = 0;
 		long long max_sum = sum;
 		for (i = 1; i <= ele - length; ++i) {
@@ -56,10 +57,12 @@ int main(void) {
 				start = i;
 			}
 		}
+
 		for (i = start; i < start + length; ++i) {
 			printf("%d ", arr[i]);
 		}
 		putchar(0xa);
+		fflush(stdout);
 	}
 
 	return 0;
