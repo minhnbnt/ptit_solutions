@@ -14,7 +14,7 @@ std::string get_id(unsigned id, const char *head) {
 }
 
 struct Customer {
-	
+
 	static std::unordered_map<std::string, const Customer *> map;
 
 	enum Gender { GENDER_male, GENDER_female };
@@ -32,7 +32,7 @@ struct Customer {
 
 		std::string gender;
 		std::getline(is >> std::ws, gender);
-		
+
 		static const std::unordered_map<std::string, Gender> map_gender = {
 			{ "Nam", GENDER_male }, { "Nu", GENDER_female } //
 		};
@@ -45,21 +45,21 @@ struct Customer {
 };
 
 struct Item {
-	
+
 	static std::unordered_map<std::string, const Item *> map;
-	
+
 	std::string name, unit;
 	unsigned long long buy, sell;
 	unsigned id;
-	
+
 	inline void input(std::istream &is) {
-		
+
 		static unsigned id = 0;
 		this->id = ++id;
 
 		std::getline(is >> std::ws, name);
 		std::getline(is >> std::ws, unit);
-		
+
 		is >> buy >> sell;
 
 		map.emplace(get_id(id, "MH"), this);
@@ -85,11 +85,11 @@ public:
 		is >> number;
 	}
 
-	inline void print(std::ofstream &os) {
+	inline void print(std::ostream &os) const {
 
 		const Item *it = Item::map.at(item_id);
 		const Customer *cs = Customer::map.at(customer_id);
-		
+
 		const unsigned long long cost = it->sell * this->number;
 
 		os << get_id(this->id, "HD") << ' ';
@@ -109,7 +109,7 @@ std::unordered_map<std::string, const Customer *> Customer::map;
 int main(void) {
 
 	unsigned elekh, elemh, cases;
-	
+
 	std::ifstream ifs("KH.in");
 	ifs >> elekh;
 
@@ -117,7 +117,7 @@ int main(void) {
 	for (Customer &cs : kh) {
 		cs.input(ifs);
 	}
-	
+
 	ifs = std::ifstream("MH.in");
 	ifs >> elemh;
 
@@ -125,7 +125,7 @@ int main(void) {
 	for (Item &it : mh) {
 		it.input(ifs);
 	}
-	
+
 	ifs = std::ifstream("HD.in");
 	ifs >> cases;
 
@@ -134,7 +134,7 @@ int main(void) {
 
 		hd.input(ifs);
 
-		hd.print();
+		hd.print(std::cout);
 		std::cout << std::endl;
 	}
 
