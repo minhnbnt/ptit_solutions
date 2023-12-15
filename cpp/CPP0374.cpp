@@ -1,29 +1,21 @@
-#include <iostream>
+/*
+Cho xâu ký tự s chỉ bao gồm hai chữ cái là ‘A’ và ‘B’.
 
-int main(void) {
-	
-	std::string input;
-	std::cin >> input;
-	
-	input.push_back('A');
-	
-	unsigned long long result = 0;
-	unsigned long long swap_from_first = 0, swap_once = 0;
-	for (size_t i = 0; i < input.size(); ++i) {
-		
-		const char c = input[i];
-		
-		if (c == 'B') {
-			++swap_once;
-			continue;
-		}
-	}
-	
-	if (input[0] == 'B') {
-		result -= 1;
-	}
-	
-	std::cout << result << std::endl;
-	
-	return 0;
-}
+Mỗi bước được phép biến đổi một vị trí bất kỳ trong xâu (A thành B, B thành A) hoặc cũng có thể biến
+đổi một dãy liên tiếp các ký tự nào đó tính từ đầu xâu.
+
+Hãy tính xem cần ít nhất bao nhiêu bước để biến đổi xâu về dạng toàn chữ cái A.
+
+Input
+Chỉ có 1 dòng ghi xâu ký tự s, độ dài không quá 1 triệu ký tự.
+
+Output
+Ghi ra kết quả bài toán
+
+Ví dụ
+Input
+AAABBBAAABBB
+
+Output
+4
+*/

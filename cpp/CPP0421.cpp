@@ -1,3 +1,30 @@
+/*
+Cho mảng A[] gồm n phần tử. Nhiệm vụ của bạn là hãy sắp đặt lại các phần tử của mảng sao cho A[i] =
+i. Nếu phần tử A[j] của có giá trị khác j, hãy đưa ghi vào -1. Ví dụ với mảng A[] = {-1,-1,6,1,9, 3,
+2, -1, 4, -1} ta có kết quả A[] = {-1, 1, 2, 3, 4, -1, 1, -1, -1, 9}.
+
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test gồm hai dòng: dòng đầu tiên đưa vào n là số phần
+tử của mảng A[]; dòng kế tiếp đưa vào n số A[i] của mảng; các số được viết cách nhau một vài khoảng
+trống.
+T, n, A[i] thỏa mãn ràng buộc: 1≤ T ≤100; 1≤ n ≤107; 1≤ A[i] ≤1018;
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+
+Input:
+2
+10
+-1 -1 6 1 9 3 2 -1 4 -1
+6
+0 -3 1 -2 3 -4
+
+Output:
+-1 1 2 3 4 -1 6 -1 -1 9
+0 1 -1 3 -1 -1
+*/
+
 #include <iostream>
 #include <unordered_set>
 #include <vector>

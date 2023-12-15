@@ -1,3 +1,24 @@
+/*
+Viết chương trình cho phép nhập vào một chuỗi và từ cần loại bỏ khỏi chuỗi. Thực hiện loại bỏ từ và
+in ra kết quả
+
+Trong đó:
+
+INPUT
+- Hàng thứ nhất là chuỗi ban đầu
+- Hàng tiếp theo là từ cần loại bỏ
+
+OUTPUT
+- Chuỗi kết quả
+
+Input
+Toi Yeu PTIT
+Toi
+
+Output
+Yeu PTIT
+*/
+
 #include <iostream>
 #include <string>
 

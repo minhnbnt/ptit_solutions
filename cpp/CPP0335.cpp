@@ -1,5 +1,33 @@
+/*
+Cho xâu ký tự S bao gồm các ký tự ‘a’,..,’z’ và các chữ số. Nhiệm vụ của bạn là hãy tìm số lớn nhất
+có mặt trong xâu.
+
+Input:
+
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test là một xâu ký tự S.
+T, S thỏa mãn ràng buộc: 1≤ T ≤100; 0≤ Length(S) ≤105.
+Input đảm bảo đáp số không vượt quá 10^9.
+Output:
+
+Đưa ra kết quả mỗi test theo từng dòng.
+Input:
+
+Output:
+
+3
+100klh564abc365bg
+abvhd9sdnkjdfs
+abchsd0sdhs
+
+564
+9
+0
+*/
+
 #include <cctype>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 int main(void) {
@@ -14,25 +42,16 @@ int main(void) {
 
 		std::string input;
 		std::getline(std::cin >> std::ws, input);
-
-		std::string num;
-
-		long long max = 0;
-
-		for (const char &c : input) {
-
-			if (isdigit(c)) {
-				num.push_back(c);
-				continue;
+		for (char &c : input) {
+			if (!isdigit(c)) {
+				c = ' ';
 			}
+		}
 
-			if (num.empty()) {
-				continue;
-			}
-
-			max = std::max(std::stoll(num), max);
-
-			num.clear();
+		long long x, max = 0;
+		std::istringstream iss(input);
+		while (iss >> x) {
+			max = std::max(max, x);
 		}
 
 		std::cout << max << std::endl;

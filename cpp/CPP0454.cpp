@@ -1,3 +1,31 @@
+/*
+Theo định lý Pytago, ta đã biết một bộ 3 số (a, b, c) thỏa mãn  a2 + b2 = c2 thì đó là ba cạnh của
+một tam giác vuông.
+
+Cho dãy số A[] gồm có N phần tử. Nhiệm vụ của bạn là kiểm tra xem có tồn tại bộ ba số thỏa mãn là ba
+cạnh của tam giác vuông hay không.
+
+Dữ liệu vào:
+Dòng đầu tiên là số lượng bộ test T (T ≤ 20).
+Mỗi test gồm số nguyên N (1≤ N ≤5000).
+Dòng tiếp theo gồm N số nguyên A[i] (1 ≤ A[i] ≤ 10^9).
+
+Kết quả:
+Với mỗi test, in ra trên một dòng “YES” nếu tìm được, và “NO” trong trường hợp ngược lại.
+
+Ví dụ:
+Input
+2
+5
+3 1 4 6 5
+3
+1 1 1
+
+Output
+YES
+NO
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

@@ -1,3 +1,26 @@
+/*
+Cho hai hàm h(x) và g(x) xác định trên tập các số tự nhiên A[] gồm n phần tử. Trong đó, h(x) là tích
+của các số trong mảng A[], g(x) là ước số chung lớn nhất của các số trong mảng A[]. Nhiệm vụ của bạn
+là tìm giá trị h(x)g(x). Chú ý, khi lời giải cho kết quả lớn hãy đưa ra giá trị modulo với 10^9+7.
+
+Input:
+Dòng đầu tiên đưa vào T là số lượng bộ test.
+T dòng tiếp đưa các bộ test. Mỗi bộ test gồm hai dòng: dòng đầu tiên đưa vào số n là số các phần tử
+của mảng A[]; dòng tiếp theo đưa vào n số tự nhiên phân biệt nhau bởi một vài khoảng trống.
+Các số T, N, A[i] thỏa mãn ràng buộc: 1≤T≤26; 1≤n≤60; 1≤A[i]≤10^4;
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+
+Input:
+1
+2
+2 4
+
+Output:
+64
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -8,7 +31,7 @@ static const long mod = 1e9 + 7;
 unsigned get_gcd(const std::vector<unsigned> &vec) {
 
 	unsigned result = vec[0];
-	for (size_t i = 0; i < vec.size(); ++i) {
+	for (size_t i = 1; i < vec.size(); ++i) {
 		result = std::__gcd(result, vec[i]);
 	}
 

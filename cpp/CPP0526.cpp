@@ -1,3 +1,32 @@
+/*
+Cho một danh sách tên người và ngày tháng năm sinh.
+
+Hãy tìm ra người trẻ nhất và người già nhất.
+
+Input
+Dòng 1 ghi số N là số người (không quá 100).
+N dòng tiếp theo, mỗi dòng ghi tên (xâu ký tự không có khoảng trống và không quá 15 ký tự, sau đó là
+dãy ký tự mô tả ngày tháng năm sinh theo chuẩn dd/mm/yyyy.
+
+Output
+Dòng đầu ghi ra tên người trẻ nhất.
+Dòng thứ 2 ghi ra tên người già nhất.
+Dữ liệu đảm bảo không có 2 người nào trùng ngày sinh.
+
+Ví dụ
+Input
+5
+Nam 01/10/1991
+An 30/12/1990
+Binh 15/08/1993
+Tam 18/09/1990
+Truong 20/09/1990
+
+Output
+Binh
+Tam
+*/
+
 #include <algorithm>
 #include <deque>
 #include <iostream>

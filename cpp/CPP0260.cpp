@@ -1,3 +1,28 @@
+/*
+Cho ma trận vuông A cỡ N*N chỉ bao gồm các số nguyên dương không quá 1000. Hãy sắp đặt các giá trị
+trong ma trận A sao cho các số được điền lần lượt theo kiểu xoắn ốc tăng dần, theo chiều kim đồng
+hồ.
+
+Input
+Dòng đầu ghi số N (2 < N < 20).
+N dòng tiếp theo ghi ma trận A, các giá trị nguyên dương và không quá 1000.
+
+Output
+Ghi ra ma trận kết quả
+
+Ví dụ:
+Input:
+3
+3 6 1
+8 7 9
+4 12 5
+
+Output:
+1 3 4
+9 12 5
+8 7 6
+*/
+
 #include <iostream>
 #include <queue>
 #include <vector>

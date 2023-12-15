@@ -1,3 +1,25 @@
+/*
+Cho số nguyên dương N rất lớn được biểu diễn như một xâu và số M. Hãy tìm K = N%M. Ví dụ
+N=123456789873123456778976, M = 100 thì K=76.
+
+Input:
+Dòng đầu tiên đưa vào số lượng test T.
+Những dòng kế tiếp mỗi dòng đưa vào các test. Mỗi test là bộ đôi N, M được viết trên hai dòng khác
+nhau.
+T, N, M thỏa mãn ràng buộc : 1≤T≤100; 0≤length(N) ≤1000; 2≤M ≤1012.
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+
+Input:
+1
+12345
+10
+
+Output:
+5
+*/
+
 #include <algorithm>
 #include <iostream>
 

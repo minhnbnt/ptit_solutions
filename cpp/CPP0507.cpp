@@ -1,3 +1,24 @@
+/*
+Viết chương trình xây dựng cấu trúc Phân số gồm hai phần tử là tử số và mẫu số. Các giá trị đều
+nguyên dương và không quá 9 chữ số.
+
+Sau đó thực hiện nhập vào hai phân số p và q. Tính tổng p + q, rút gọn và in ra kết quả.
+
+Input
+Có bốn số nguyên dương lần lượt là tử số và mẫu số của p rồi đến q.
+
+Output
+Ghi ra phân số tổng p + q ở dạng tối giản như trong ví dụ
+
+Ví dụ
+
+Input
+Output
+
+123 456 12 34
+1609/2584
+*/
+
 #include <algorithm>
 #include <iostream>
 
@@ -29,6 +50,7 @@ void in(const PhanSo &p) {
 	std::cout << p.tu << '/' << p.mau << std::endl;
 }
 
+// Bài tập này yêu cầu sử dụng hàm main cho sẵn như sau:
 int main() {
 	struct PhanSo p, q;
 	nhap(p);

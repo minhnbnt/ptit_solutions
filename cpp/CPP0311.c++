@@ -1,3 +1,29 @@
+/*
+Cho xâu ký tự S bao gồm các ký tự ‘a’,..,’z’. Các ký tự trong S có thể lặp lại. Nhiệm vụ của bạn sắp
+đặt lại các ký tự trong S sao cho các ký tự kề nhau đều khác nhau.
+
+Input:
+
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test là một xâu ký tự S.
+T, S thỏa mãn ràng buộc: 1≤ T ≤100; 0≤ Length(S) ≤10^3.
+
+Output:
+Đưa ra 1 hoặc 0 nếu có thể hoặc không thể sắp đặt lại các ký tự trong xâu S thỏa mãn yêu cầu bài
+toán.
+
+Input:
+3
+geeksforgeeks
+bbbabaaacd
+bbbbb
+
+Output:
+1
+1
+0
+*/
+
 #include <iostream>
 #include <string>
 #include <unordered_map>

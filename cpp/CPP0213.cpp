@@ -29,7 +29,7 @@ Output:
 #include <iostream>
 #include <vector>
 
-auto in_fibs(unsigned x) {
+auto in_fibs(unsigned x) -> bool {
 
 	static auto vec = std::vector<unsigned>{ 0, 1 };
 
