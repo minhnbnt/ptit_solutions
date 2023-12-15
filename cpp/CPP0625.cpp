@@ -1,3 +1,35 @@
+/*
+Danh sách giảng viên Khoa CNTT cần được sắp xếp lại theo tên. Thông tin về giảng viên ban đầu chỉ có
+họ tên và Bộ môn. Mã giảng viên tự động tăng, tính từ GV01.
+
+Cần sắp xếp lại theo tên (tức là từ cuối cùng trong xâu họ tên). Các giảng viên có cùng tên thì được
+sắp xếp theo mã giảng viên.
+
+Input
+Dòng đầu ghi số giảng viên.
+Mỗi giảng viên ghi trên 2 dòng gồm họ tên (không quá 50 ký tự) và Bộ môn (không quá 30 ký tự).
+
+Output
+Danh sách đã sắp xếp trong đó mỗi giảng viên ghi trên một dòng. Mã được tự động điền theo thứ tự
+nhập, bộ môn được viết tắt theo các chữ cái đầu của từng từ và ở dạng in hoa.
+
+Ví dụ
+
+Input
+3
+Nguyen Manh Son
+Cong nghe phan mem
+Vu Hoai Nam
+Khoa hoc may tinh
+Dang Minh Tuan
+An toan thong tin
+
+Ouput
+GV02 Vu Hoai Nam KHMT
+GV01 Nguyen Manh Son CNPM
+GV03 Dang Minh Tuan ATTT
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <sstream>
@@ -6,10 +38,10 @@
 
 class Teacher {
 
-	size_t id;
 	std::string name, last_name, subject;
+	size_t id;
 
-	public:
+public:
 
 	static int comparator(const Teacher &t1, const Teacher &t2) {
 

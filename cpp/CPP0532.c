@@ -1,3 +1,34 @@
+/*
+Cho một đa giác lồi có N đỉnh trên mặt phẳng Oxy.
+
+Nhiệm vụ của bạn là hãy tính diện tích đa giác này.
+
+Input:
+Dòng đầu tiên là số lượng bộ test T (T ≤ 100).
+Mỗi test bắt đầu bởi số nguyên N (N ≤ 1000).
+N dòng tiếp theo, mỗi dòng gồm 2 số nguyên x[i], y[i] (-1000 ≤ x[i], y[i] ≤ 1000) là tọa độ của điểm
+thứ i. Các điểm được liệt kê theo thứ tự ngược chiều quay kim đồng hồ.
+
+Output:
+Với mỗi test, in ra đáp án tìm được trên một dòng.
+
+Input:
+2
+3
+0 0
+1 0
+0 1
+4
+0 0
+2 0
+2 2
+0 2
+
+Output:
+0.500
+4.000
+*/
+
 #include <math.h>
 #include <stdio.h>
 

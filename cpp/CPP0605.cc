@@ -1,3 +1,23 @@
+/*
+Viết chương trình xây dựng class Phân số.
+
+Sau đó thực hiện nhập vào một phân số và in ra phân số đó ở dạng tối giản.
+
+Input
+Có hai số nguyên dương lần lượt là tử số và mẫu số. Các giá trị không quá 18 chữ số.
+
+Output
+Ghi ra phân số tối giản như trong ví dụ
+
+Ví dụ
+
+Input
+123 456
+
+Output
+41/152
+*/
+
 #include <algorithm>
 #include <iostream>
 

@@ -1,31 +1,23 @@
-#include <iostream>
-#include <string>
+/*
+Cho xâu ký tự S chỉ bao gồm các ký tự ‘0’ và ‘1’. Nhiệm vụ của bạn là loại bỏ các xâu con “100”
+trong S và đưa ra độ dài lớn nhất xâu con bị loại bỏ. Ví dụ S =” 1011110000” ta nhận được kết quả là
+6 vì ta cần loại bỏ xâu “110000” có độ dài 6.
 
-int main(void) {
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test là một xâu ký tự nhị phân S được viết trên một
+dòng.
+T, S thỏa mãn ràng buộc: 1≤ T ≤100; 1≤ Length(S)≤10^5.
 
-	unsigned cases;
-	std::cin >> cases;
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
 
-	while (cases--) {
+Input:
+2
+010010
+1011110000
 
-		std::string input;
-		std::cin >> std::ws >> input;
-
-		int result = 0;
-
-		for (int i = 0; i < input.length() - 2; ++i) {
-
-			if (input.size() < 3) break;
-
-			else if (input[i] == '1' && input[i + 1] == '0' && input[i + 2] == '0') {
-				input.erase(i, 3);
-				result += 3;
-				i = -1;
-			}
-		}
-
-		std::cout << result << std::endl;
-	}
-
-	return 0;
-}
+Output:
+3
+6
+*/

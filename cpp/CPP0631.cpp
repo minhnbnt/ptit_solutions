@@ -84,12 +84,13 @@ HD003 Tran Van Binh Phung Khoang-Nam Tu Liem-Ha Noi Ao khoac nam Cai
 #include <string>
 #include <unordered_map>
 
-enum Gender { male, female };
 using u64 = unsigned long long;
 
 static const bool enable_prompt = false;
 
 struct KhachHang {
+
+	enum Gender { male, female };
 
 	std::string ten, ngay_sinh, dia_chi;
 	Gender gioi_tinh;

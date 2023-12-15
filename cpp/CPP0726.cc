@@ -1,3 +1,22 @@
+/*
+Cho ba số a, b, c có thể lớn cỡ 10^16. Nhiệm vụ của bạn là tính (a*b)%c.
+
+Input:
+Dòng đầu tiên đưa vào số lượng test T.
+Những dòng kế tiếp đưa vào các bộ test. Mỗi test trên một dòng đưa vào ba số a, b, c.
+T, a, b, c  thỏa mãn ràng buộc : 1≤T≤100; 0≤a, b, c≤10^16.
+
+Output:
+Đưa ra số kết quả mỗi test theo từng dòng.
+
+Input:
+1
+8 4 5
+
+Output:
+2
+*/
+
 #include <iostream>
 
 int main(void) {

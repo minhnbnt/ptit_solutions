@@ -9,7 +9,6 @@ Dòng đầu tiên đưa vào số lượng bộ test T.
 Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test gồm hai dòng: dòng đầu tiên
 đưa vào n là số phần tử của mảng A[]; dòng kế tiếp đưa vào n số A[i] của mảng;
 các số được viết cách nhau một vài khoảng trống.
-
 T, n, A[i] thỏa mãn ràng buộc: 1≤ T ≤100; 1≤ n ≤10^3; 0≤ A[i] ≤10^3;
 
 Output:

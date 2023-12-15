@@ -1,41 +1,23 @@
-#include <iostream>
-#include <string>
+/*
+Ta cần tạo một xâu ký tự S có độ dài n. Trong đó, mỗi ký tự trong S chỉ là các ký tự R, B, hoặc G.
+Xâu ký tự nhận được có ít nhất r ký tự R, b ký tự B, g ký tự G (r + b + g ≤n). Hãy đếm số các xâu ký
+tự thỏa mãn yêu cầu kể trên. Ví dụ với n=4, r=1, b=1, g = 1 ta có thể có 36 xâu ký tự khác nhau.
 
-void print_all_bits(size_t len) {
+Input:
+Dòng đầu tiên đưa vào số lượng bộ test T.
+Những dòng kế tiếp đưa vào T bộ test. Mỗi bộ test là bộ bốn số phân biệt n, r, b, g được viết trên
+một dòng.
+T, S, n, r, b, g thỏa mãn ràng buộc: 1≤ T ≤100; 1≤ n ≤20;1≤ r, b, g≤N.
 
-	static std::string bits;
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
 
-	if (bits.length() == len) {
-		std::cout << bits << ' ';
-		return;
-	}
+Input:
+2
+4 1 1 1
+4 2 0 1
 
-	for (char c : { '0', '1' }) {
-
-		bits.push_back(c);
-
-		print_all_bits(len);
-
-		bits.pop_back();
-	}
-}
-
-int main(void) {
-
-	std::ios_base::sync_with_stdio(false);
-	std::cin.tie(nullptr), std::cout.tie(nullptr);
-
-	unsigned cases;
-	std::cin >> cases;
-
-	while (cases--) {
-
-		size_t length;
-		std::cin >> length;
-
-		print_all_bits(length);
-		std::cout << std::endl;
-	}
-
-	return 0;
-}
+Output:
+36
+22
+*/
