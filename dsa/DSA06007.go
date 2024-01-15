@@ -13,11 +13,11 @@ func main() {
 	for ; cases > 0; cases-- {
 
 		var element int
-		fmt.Scanf("%d", &element)
+		fmt.Scan(&element)
 
 		slice := make([]int, element)
 		for i := 0; i < element; i++ {
-			fmt.Scanf("%d", &slice[i])
+			fmt.Scan(&slice[i])
 		}
 
 		sorted := make([]int, element)
@@ -36,6 +36,4 @@ func main() {
 
 		fmt.Println(left+1, right+1)
 	}
-
-	return
 }
