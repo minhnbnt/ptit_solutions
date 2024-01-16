@@ -7,7 +7,7 @@ import (
 
 type ValueCount struct {
 	value   int
-	counter uint
+	counter int
 }
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 		var element int
 		fmt.Scan(&element)
 
-		counterMap := make(map[int]uint)
+		counterMap := make(map[int]int)
 		for i := 0; i < element; i++ {
 
 			var value int
@@ -31,8 +31,24 @@ func main() {
 
 		var counterSlice []ValueCount
 		for key, value := range counterMap {
-			append(counterSlice, ValueCount{value: key, counter: value})
+			element := ValueCount{value: key, counter: value}
+			counterSlice = append(counterSlice, element)
 		}
 
+		sort.Slice(counterSlice, func(i, j int) bool {
+
+			if counterSlice[i].counter != counterSlice[j].counter {
+				return counterSlice[i].counter > counterSlice[j].counter
+			}
+
+			return counterSlice[i].value < counterSlice[j].value
+		})
+
+		for _, valueCounter := range counterSlice {
+			for i := 0; i < valueCounter.counter; i++ {
+				fmt.Printf("%v ", valueCounter.value)
+			}
+		}
+		fmt.Println()
 	}
 }
