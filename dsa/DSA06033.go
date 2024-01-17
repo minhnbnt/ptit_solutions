@@ -1,6 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
+
+type ValueIndex struct {
+	index, value int
+}
 
 func main() {
 
@@ -12,25 +19,37 @@ func main() {
 		var size int
 		fmt.Scan(&size)
 
-		slice := make([]int, size)
+		slice := make([]ValueIndex, size)
 		for i := 0; i < size; i++ {
-			fmt.Scan(&slice[i])
+			fmt.Scan(&slice[i].value)
+			slice[i].index = i
 		}
 
+		sort.Slice(slice, func(i, j int) bool {
+
+			if slice[i].value != slice[j].value {
+				return slice[i].value < slice[j].value
+			}
+
+			return slice[i].index < slice[j].index
+		})
+
+		j := 0
 		longestDistance := -1
-		for i, leftEle := range slice {
-			for j := size - 1; j > i; j-- {
 
-				if slice[j] <= leftEle {
-					continue
-				}
+		for i := 1; i < size; i++ {
 
-				distance := j - i
-				if longestDistance < distance {
-					longestDistance = distance
-				}
+			distance := slice[i].index - slice[j].index
+			for ; distance < 0 && i > j; j++ {
+				distance = slice[i].index - slice[j].index
+			}
 
-				break
+			if slice[i].value == slice[j].value {
+				continue
+			}
+
+			if longestDistance < distance {
+				longestDistance = distance
 			}
 		}
 
