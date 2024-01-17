@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class DSA06047 {
 
@@ -9,14 +9,14 @@ public class DSA06047 {
 
 	static boolean has3Pytago(List<Long> edges) {
 
-		List<Long> transformed = new ArrayList(edges.size());
-		edges.forEach((edge) -> transformed.add(edge * edge));
-		transformed.sort(Collections.reverseOrder());
+		List<Long> transformed = edges.stream()
+		                             .map((edge) -> edge * edge)
+		                             .sorted((a, b) -> b.compareTo(a))
+		                             .collect(Collectors.toList());
 
 		for (int i = 0; i < transformed.size(); ++i) {
 
 			final long hypo_edge = transformed.get(i);
-
 			int left = i + 1, right = transformed.size() - 1;
 
 			while (left < right) {
@@ -43,7 +43,7 @@ public class DSA06047 {
 		while (cases-- > 0) {
 
 			int size = stdin.nextInt();
-			List<Long> edges = new ArrayList(size);
+			List<Long> edges = new ArrayList<>(size);
 
 			for (int i = 0; i < size; ++i) {
 				edges.add(stdin.nextLong());
