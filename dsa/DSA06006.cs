@@ -12,7 +12,8 @@ class Program {
 			int size;
 			Int32.TryParse(Console.ReadLine(), out size);
 
-			var array = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+			var array = Array.ConvertAll(
+			    Console.ReadLine().Trim().Split(' '), int.Parse);
 			Array.Sort(array);
 
 			foreach (int element in array) {

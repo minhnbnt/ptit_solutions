@@ -16,7 +16,11 @@ class Program {
 			Int32.TryParse(token[0], out size);
 			Int32.TryParse(token[1], out window_size);
 
-			int[] array = Console.ReadLine().Trim().Split().Select(int.Parse).ToArray();
+			List<int> array = Console.ReadLine()
+			                      .Trim()
+			                      .Split(" ")
+			                      .Select(Int32.Parse)
+			                      .ToList();
 
 			var list = new LinkedList<int>();
 			for (int i = 0; i < size; i++) {

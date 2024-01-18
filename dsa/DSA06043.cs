@@ -29,7 +29,11 @@ class Program {
 
 			int size = Int32.Parse(Console.ReadLine());
 
-			List<int> array = Console.ReadLine().TrimEnd().Split().Select(int.Parse).ToList();
+			List<int> array = Console.ReadLine()
+			                      .TrimEnd()
+			                      .Split(" ")
+			                      .Select(int.Parse)
+			                      .ToList();
 
 			if (BalanceIndex(array) is int result) {
 				Console.WriteLine(result + 1);

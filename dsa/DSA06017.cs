@@ -15,10 +15,11 @@ class Program {
 			int size2 = Int32.Parse(tokens[1]);
 
 			var array = new List<long>();
-			foreach (string token in Console.ReadLine().Trim().Split()) {
+			foreach (var token in Console.ReadLine().Trim().Split()) {
 				array.Add(Int64.Parse(token));
 			}
-			foreach (string token in Console.ReadLine().Trim().Split()) {
+
+			foreach (var token in Console.ReadLine().Trim().Split()) {
 				array.Add(Int64.Parse(token));
 			}
 

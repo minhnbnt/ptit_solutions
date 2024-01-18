@@ -5,27 +5,25 @@ import java.util.stream.Collectors;
 
 public class DSA06047 {
 
-	static final Scanner stdin = new Scanner(System.in);
+	static boolean has3Pytago(List<Integer> edges) {
 
-	static boolean has3Pytago(List<Long> edges) {
+		final List<Long> squared = edges.stream()
+		                               .map((edge) -> (long)edge * edge)
+		                               .sorted((a, b) -> a.compareTo(b))
+		                               .collect(Collectors.toList());
 
-		List<Long> transformed = edges.stream()
-		                             .map((edge) -> edge * edge)
-		                             .sorted((a, b) -> b.compareTo(a))
-		                             .collect(Collectors.toList());
+		for (int i = 2; i < squared.size(); ++i) {
 
-		for (int i = 0; i < transformed.size(); ++i) {
-
-			final long hypo_edge = transformed.get(i);
-			int left = i + 1, right = transformed.size() - 1;
+			int left = 0, right = i - 1;
+			final long hypoSquared = squared.get(i);
 
 			while (left < right) {
 
-				final long sum = transformed.get(left) + transformed.get(right);
+				final long sum = squared.get(left) + squared.get(right);
 
-				if (sum > hypo_edge) {
+				if (sum < hypoSquared) {
 					++left;
-				} else if (sum < hypo_edge) {
+				} else if (sum > hypoSquared) {
 					--right;
 				} else {
 					return true;
@@ -36,6 +34,8 @@ public class DSA06047 {
 		return false;
 	}
 
+	static final Scanner stdin = new Scanner(System.in);
+
 	public static void main(String[] args) {
 
 		int cases = stdin.nextInt();
@@ -43,10 +43,10 @@ public class DSA06047 {
 		while (cases-- > 0) {
 
 			int size = stdin.nextInt();
-			List<Long> edges = new ArrayList<>(size);
+			List<Integer> edges = new ArrayList<>(size);
 
 			for (int i = 0; i < size; ++i) {
-				edges.add(stdin.nextLong());
+				edges.add(stdin.nextInt());
 			}
 
 			System.out.println(has3Pytago(edges) ? "YES" : "NO");

@@ -13,10 +13,10 @@ public class DSA04018 {
 			int _size = stdin.nextInt();
 			stdin.skip("\\s+");
 
-			long result = Arrays
-			                  .stream(stdin.nextLine().split("\\s+")) //
-			                  .filter((s) -> s.equals("0"))
-			                  .count();
+			long result =
+			    Arrays.stream(stdin.nextLine().split("\\s+"))
+			        .filter((s) -> s.equals("0"))
+			        .count();
 
 			System.out.println(result);
 		}

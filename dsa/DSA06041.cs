@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -34,7 +34,11 @@ class Program {
 
 			int size = Int32.Parse(Console.ReadLine());
 
-			var array = Console.ReadLine().TrimEnd().Split().Select(int.Parse).ToList();
+			var array = Console.ReadLine()
+			                .TrimEnd()
+			                .Split()
+			                .Select(Int32.Parse)
+			                .ToList();
 
 			if (HasTakeHalfSizeOf(array) is int result) {
 				Console.WriteLine(result);

@@ -16,12 +16,14 @@ public class DSA01025 {
 			int _size = stdin.nextInt();
 			stdin.skip("\\s+");
 
-			TreeSet<Integer> elements = Arrays.stream(stdin.nextLine().split("\\s+"))
-			                                .mapToInt(Integer::parseInt)
-			                                .boxed()
-			                                .collect(Collectors.toCollection(TreeSet::new));
+			TreeSet<Integer> elements =
+			    Arrays.stream(stdin.nextLine().split("\\s+"))
+			        .mapToInt(Integer::parseInt)
+			        .boxed()
+			        .collect(Collectors.toCollection(TreeSet::new));
 
-			int result = elements.last() - elements.first() - elements.size() + 1;
+			int result = elements.last() - elements.first() -
+			             elements.size() + 1;
 			System.out.println(result);
 		}
 	}

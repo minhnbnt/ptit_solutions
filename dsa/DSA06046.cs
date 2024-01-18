@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
 class Program {
+
 	static void Main() {
 
 		int cases;
@@ -12,8 +13,12 @@ class Program {
 
 			int size = Int32.Parse(Console.ReadLine());
 
-			var array =
-			    Console.ReadLine().Trim().Split().Select(Int32.Parse).OrderBy(x => x).ToList();
+			var array = Console.ReadLine()
+			                .Trim()
+			                .Split()
+			                .Select(Int32.Parse)
+			                .OrderBy(x => x)
+			                .ToList();
 
 			int minimum_diff = Int32.MaxValue;
 			for (int i = 1; i < size; i++) {
