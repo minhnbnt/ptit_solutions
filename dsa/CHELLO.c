@@ -14,14 +14,13 @@ const char *msg = "Hello PTIT.";
 
 int main(void) {
 
-	/* Just for fun, don't judge me. */
-	asm(".intel_syntax noprefix;");
+	asm(".intel_syntax noprefix");
 
 	asm("mov  rax, QWORD PTR msg[rip]");
 	asm("mov  rdi, rax");
 	asm("call puts");
 
-	asm(".att_syntax;");
+	asm(".att_syntax");
 
 	return 0;
 }
