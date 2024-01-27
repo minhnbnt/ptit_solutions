@@ -10,15 +10,20 @@ Output
 Hello PTIT.
 */
 
-const char *msg = "Hello PTIT.";
+const char *msg = "Hello PTIT.\n";
+const volatile int len = 12;
 
 int main(void) {
 
 	asm(".intel_syntax noprefix");
 
-	asm("mov  rax, QWORD PTR msg[rip]");
-	asm("mov  rdi, rax");
-	asm("call puts");
+	asm("mov   rax, 1");
+	asm("mov   rdi, 1");
+
+	asm("mov   rsi, QWORD PTR msg[rip]");
+	asm("movsx rdx, DWORD PTR len[rip]");
+
+	asm("syscall");
 
 	asm(".att_syntax");
 
