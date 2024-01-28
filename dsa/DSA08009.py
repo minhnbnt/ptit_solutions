@@ -2,9 +2,6 @@ from collections import deque
 
 
 def numberOfOperator(number, target):
-    if number == target:
-        return 0
-
     queue = deque()
     generated = dict()
 

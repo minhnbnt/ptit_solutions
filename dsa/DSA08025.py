@@ -16,9 +16,6 @@ def isValid(pos):
 
 
 def minimumMove(start, finish):
-    if start == finish:
-        return 0
-
     queue = deque()
     visited = dict()
 
