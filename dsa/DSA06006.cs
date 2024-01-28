@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 class Program {
 
@@ -12,13 +13,17 @@ class Program {
 			int size;
 			Int32.TryParse(Console.ReadLine(), out size);
 
-			var array = Array.ConvertAll(
-			    Console.ReadLine().Trim().Split(' '), int.Parse);
-			Array.Sort(array);
+			var array = Console.ReadLine()
+			                .TrimEnd()
+			                .Split()
+			                .Select(int.Parse)
+			                .OrderBy(x => x)
+			                .ToArray();
 
 			foreach (int element in array) {
 				Console.Write(element + " ");
 			}
+
 			Console.Write('\n');
 		}
 	}
