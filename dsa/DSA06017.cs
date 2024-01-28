@@ -11,19 +11,22 @@ class Program {
 		while (cases-- > 0) {
 
 			string[] tokens = Console.ReadLine().Split();
-			int size1 = Int32.Parse(tokens[0]);
-			int size2 = Int32.Parse(tokens[1]);
+			int _size1 = Int32.Parse(tokens[0]);
+			int _size2 = Int32.Parse(tokens[1]);
 
-			var array = new List<long>();
-			foreach (var token in Console.ReadLine().Trim().Split()) {
-				array.Add(Int64.Parse(token));
-			}
+			var array1 = Console.ReadLine()
+			                 .TrimEnd()
+			                 .Split(' ')
+			                 .Select(long.Parse)
+			                 .ToList();
 
-			foreach (var token in Console.ReadLine().Trim().Split()) {
-				array.Add(Int64.Parse(token));
-			}
+			var array2 = Console.ReadLine()
+			                 .TrimEnd()
+			                 .Split(' ')
+			                 .Select(Int64.Parse)
+			                 .ToList();
 
-			foreach (long element in array.OrderBy(x => x)) {
+			foreach (var element in array1.Concat(array2).OrderBy(x => x)) {
 				Console.Write(element + " ");
 			}
 			Console.Write('\n');
