@@ -10,8 +10,7 @@ func main() {
 	for ; cases > 0; cases-- {
 
 		var size, target int
-		fmt.Scan(&size)
-		fmt.Scan(&target)
+		fmt.Scan(&size, &target)
 
 		hashMap := map[int]int{}
 		for i := 0; i < size; i++ {

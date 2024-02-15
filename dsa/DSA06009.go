@@ -24,8 +24,7 @@ func main() {
 	for ; cases > 0; cases-- {
 
 		var size, target int
-		fmt.Scan(&size)
-		fmt.Scan(&target)
+		fmt.Scan(&size, &target)
 
 		slice := make([]int, size)
 		for i := 0; i < size; i++ {

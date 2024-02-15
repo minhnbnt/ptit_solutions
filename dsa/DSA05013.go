@@ -10,8 +10,7 @@ func main() {
 	for ; cases > 0; cases-- {
 
 		var distance, speed int
-		fmt.Scan(&distance)
-		fmt.Scan(&speed)
+		fmt.Scan(&distance, &speed)
 
 		dp := make([]uint64, distance+1)
 		dp[0] = 1
