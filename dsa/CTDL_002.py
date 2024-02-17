@@ -21,7 +21,7 @@ def allValidSubarray(array, targetSum):
     yield from solve()
 
 
-_size, targetSum = (int(token) for token in input().split())
+size__, targetSum = (int(token) for token in input().split())
 array = [int(token) for token in input().split()]
 
 outputs = []

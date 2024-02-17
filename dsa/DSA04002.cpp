@@ -35,8 +35,8 @@ int main(void) {
 
 		const std::string reversed(num.rbegin(), num.rend());
 
-		std::cout << bin_pow(std::stoull(num), std::stoull(reversed))
-		          << std::endl;
+		const u64 result = bin_pow(std::stoull(num), std::stoull(reversed));
+		std::cout << result << std::endl;
 	}
 
 	return 0;

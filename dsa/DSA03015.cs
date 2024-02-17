@@ -1,16 +1,13 @@
 using System;
 
-class Solution
-{
+class Solution {
 
-	static void Main(string[] args)
-	{
+	static void Main(string[] args) {
 
 		uint cases;
 		uint.TryParse(Console.ReadLine(), out cases);
 
-		while (cases-- > 0)
-		{
+		while (cases-- > 0) {
 
 			string[] tokens = Console.ReadLine().Split();
 
@@ -23,8 +20,7 @@ class Solution
 			int dayCanBuy = dayRemaining - (dayRemaining / 7);
 			int foodCanBuy = dayCanBuy * foodPerDay;
 
-			if (foodRequired > foodCanBuy)
-			{
+			if (foodRequired > foodCanBuy) {
 				Console.WriteLine(-1);
 				continue;
 			}

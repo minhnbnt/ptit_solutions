@@ -43,7 +43,8 @@ int main() {
 					continue;
 				}
 
-				const int price_if_take = dp[weight_remaining][j - 1] + current_item.price;
+				const int price_if_take =
+				    dp[weight_remaining][j - 1] + current_item.price;
 				if (price_if_take > dp[i][j]) {
 					dp[i][j] = price_if_take;
 				}
@@ -51,5 +52,8 @@ int main() {
 		}
 
 		printf("%d\n", dp[capacity][number_of_item]);
+		fflush(stdout);
 	}
+
+	return 0;
 }

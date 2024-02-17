@@ -4,7 +4,9 @@ import "fmt"
 
 const MOD = int64(1e9 + 7)
 
-func MultipleMatrix(mx1 [][]int64, mx2 [][]int64, rank int) [][]int64 {
+func MultipleMatrix(mx1 [][]int64, mx2 [][]int64) [][]int64 {
+
+	rank := len(mx1)
 
 	result := make([][]int64, rank)
 
@@ -24,7 +26,9 @@ func MultipleMatrix(mx1 [][]int64, mx2 [][]int64, rank int) [][]int64 {
 	return result
 }
 
-func PowerMatrix(matrix [][]int64, rank int, exponent uint) [][]int64 {
+func PowerMatrix(matrix [][]int64, exponent uint) [][]int64 {
+
+	rank := len(matrix)
 
 	if exponent == 0 {
 
@@ -39,12 +43,12 @@ func PowerMatrix(matrix [][]int64, rank int, exponent uint) [][]int64 {
 	}
 
 	if exponent%2 == 0 {
-		squareRooted := PowerMatrix(matrix, rank, exponent/2)
-		return MultipleMatrix(squareRooted, squareRooted, rank)
+		squareRooted := PowerMatrix(matrix, exponent/2)
+		return MultipleMatrix(squareRooted, squareRooted)
 	}
 
-	divided := PowerMatrix(matrix, rank, exponent-1)
-	return MultipleMatrix(divided, matrix, rank)
+	divided := PowerMatrix(matrix, exponent-1)
+	return MultipleMatrix(divided, matrix)
 }
 
 func main() {
@@ -66,7 +70,7 @@ func main() {
 			}
 		}
 
-		result := PowerMatrix(matrix, rank, exp)
+		result := PowerMatrix(matrix, exp)
 
 		var sum int64 = 0
 		for i := 0; i < rank; i++ {

@@ -49,8 +49,7 @@ func main() {
 		for ; insertAttempt > 0; insertAttempt-- {
 
 			var parent, child int
-			fmt.Scan(&parent)
-			fmt.Scan(&child)
+			fmt.Scan(&parent, &child)
 
 			ptr, has := valueMap[parent]
 			if !has {

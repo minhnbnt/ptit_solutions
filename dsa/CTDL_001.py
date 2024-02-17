@@ -15,20 +15,19 @@ def allBitsString(length):
     yield from generator()
 
 
-if __name__ == "__main__":
-    size = int(input())
+size = int(input())
 
-    lengthRequired, mod = divmod(size, 2)
+lengthRequired, mod = divmod(size, 2)
 
-    for bitsStr in allBitsString(lengthRequired + mod):
-        result = ""
-        for bits in bitsStr:
-            result += "1" if bits else "0"
+for bitsStr in allBitsString(lengthRequired + mod):
+    result = ""
+    for bits in bitsStr:
+        result += "1" if bits else "0"
 
-        for bits in reversed(bitsStr):
-            if len(result) == size:
-                break
+    for bits in reversed(bitsStr):
+        if len(result) == size:
+            break
 
-            result += "1" if bits else "0"
+        result += "1" if bits else "0"
 
-        print(*result)
+    print(*result)

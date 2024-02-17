@@ -49,6 +49,7 @@ func main() {
 				fmt.Printf("%v ", valueCounter.value)
 			}
 		}
+
 		fmt.Println()
 	}
 }

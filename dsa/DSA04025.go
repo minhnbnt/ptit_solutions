@@ -24,7 +24,10 @@ func MultipleMatrix(mx1 [2][2]uint64, mx2 [2][2]uint64) [2][2]uint64 {
 func PowerMatrix(matrix [2][2]uint64, n uint) [2][2]uint64 {
 
 	if n == 0 {
-		return [2][2]uint64{{1, 0}, {0, 1}}
+		return [2][2]uint64{
+			{1, 0},
+			{0, 1},
+		}
 	}
 
 	if n%2 == 0 {
@@ -37,7 +40,11 @@ func PowerMatrix(matrix [2][2]uint64, n uint) [2][2]uint64 {
 
 func Fibonacci(n uint) uint64 {
 
-	matrix := [2][2]uint64{{1, 1}, {1, 0}}
+	matrix := [2][2]uint64{
+		{1, 1},
+		{1, 0}
+	}
+
 	powered := PowerMatrix(matrix, n-1)
 
 	return powered[0][0]
