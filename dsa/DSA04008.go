@@ -29,7 +29,7 @@ func (self Matrix) Multiple(other Matrix) Matrix {
 func (self Matrix) Pow(n int) Matrix {
 
 	if n == 0 {
-		return [2][2]uint64{
+		return Matrix{
 			{1, 0},
 			{0, 1},
 		}
