@@ -7,15 +7,17 @@ import (
 
 const MOD = uint64(1e9 + 7)
 
-func MultipleMatrix(mx1 [2][2]uint64, mx2 [2][2]uint64) [2][2]uint64 {
+type Matrix [2][2]uint64
 
-	result := [2][2]uint64{}
+func (self Matrix) Multiple(other Matrix) Matrix {
+
+	result := Matrix{}
 
 	for i := 0; i < 2; i++ {
 		for j := 0; j < 2; j++ {
 
 			for k := 0; k < 2; k++ {
-				result[i][j] += (mx1[i][k] * mx2[k][j]) % MOD
+				result[i][j] += (self[i][k] * other[k][j]) % MOD
 				result[i][j] %= MOD
 			}
 		}
@@ -24,24 +26,31 @@ func MultipleMatrix(mx1 [2][2]uint64, mx2 [2][2]uint64) [2][2]uint64 {
 	return result
 }
 
-func PowerMatrix(matrix [2][2]uint64, n int) [2][2]uint64 {
+func (self Matrix) Pow(n int) Matrix {
 
 	if n == 0 {
-		return [2][2]uint64{{1, 0}, {0, 1}}
+		return [2][2]uint64{
+			{1, 0},
+			{0, 1},
+		}
 	}
 
 	if n%2 == 0 {
-		squareRooted := PowerMatrix(matrix, n/2)
-		return MultipleMatrix(squareRooted, squareRooted)
+		squareRooted := self.Pow(n / 2)
+		return squareRooted.Multiple(squareRooted)
 	}
 
-	return MultipleMatrix(PowerMatrix(matrix, n-1), matrix)
+	return self.Pow(n - 1).Multiple(self)
 }
 
 func Fibonacci(n int) uint64 {
 
-	matrix := [2][2]uint64{{1, 1}, {1, 0}}
-	powered := PowerMatrix(matrix, n-1)
+	matrix := Matrix{
+		{1, 1},
+		{1, 0},
+	}
+
+	powered := matrix.Pow(n - 1)
 
 	return powered[0][0]
 }
