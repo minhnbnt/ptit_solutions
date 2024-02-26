@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-bool is_prime(unsigned n) {
+bool is_prime(size_t n) {
 
 	static std::vector<bool> vec{ false, false };
 	const size_t prev_size = vec.size();
@@ -28,7 +28,8 @@ bool is_prime(unsigned n) {
 	return vec[n];
 }
 
-void generate(std::vector<int>::iterator begin, std::vector<int>::iterator end,
+template <typeame Iter>
+void generate(Iter begin, Iter end,
               std::vector<std::vector<int>> &output) {
 
 	static std::vector<int> current;

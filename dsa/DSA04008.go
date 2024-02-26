@@ -63,6 +63,9 @@ func main() {
 	lock := new(sync.Mutex)
 	channels := make([]chan uint64, cases)
 
+	defer lock.Lock()
+
+	lock.Lock()
 	go func() {
 
 		defer lock.Unlock()
@@ -72,8 +75,6 @@ func main() {
 		}
 
 	}()
-
-	lock.Lock()
 
 	for i := range channels {
 
@@ -91,6 +92,4 @@ func main() {
 
 		}(i, n)
 	}
-
-	lock.Lock()
 }

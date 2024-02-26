@@ -2,6 +2,26 @@ package main
 
 import "fmt"
 
+func GetDiff(number int) (int, int) {
+
+	currentDiff := 1
+	largerDiff, smallerDiff := 0, 0
+
+	for ; number > 0; number /= 10 {
+
+		switch number % 10 {
+		case 5:
+			largerDiff += currentDiff
+		case 6:
+			smallerDiff -= currentDiff
+		}
+
+		currentDiff *= 10
+	}
+
+	return largerDiff, smallerDiff
+}
+
 func main() {
 
 	var a, b int
@@ -9,29 +29,15 @@ func main() {
 
 	largerSum, smallerSum := a+b, a+b
 
-	currentDiff := 1
-	for ; a > 0; a /= 10 {
+	largerDiff, smallerDiff := GetDiff(a)
 
-		if a%10 == 5 {
-			largerSum += currentDiff
-		} else if a%10 == 6 {
-			smallerSum -= currentDiff
-		}
+	largerSum += largerDiff
+	smallerSum -= smallerDiff
 
-		currentDiff *= 10
-	}
+	largerDiff, smallerDiff = GetDiff(b)
 
-	currentDiff = 1
-	for ; b > 0; b /= 10 {
-
-		if b%10 == 5 {
-			largerSum += currentDiff
-		} else if b%10 == 6 {
-			smallerSum -= currentDiff
-		}
-
-		currentDiff *= 10
-	}
+	largerSum += largerDiff
+	smallerSum -= smallerDiff
 
 	fmt.Println(smallerSum, largerSum)
 }

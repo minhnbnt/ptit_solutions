@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
-using System.Collections.Generic;
 
 class Program {
+
 	static void Main() {
 
 		int cases;
@@ -26,9 +26,12 @@ class Program {
 			                 .Select(Int64.Parse)
 			                 .ToList();
 
-			foreach (var element in array1.Concat(array2).OrderBy(x => x)) {
-				Console.Write(element + " ");
-			}
+			array1 //
+			    .Concat(array2)
+			    .OrderBy(x => x)
+			    .ToList()
+			    .ForEach(x => Console.Write(x + " "));
+
 			Console.Write('\n');
 		}
 	}
