@@ -8,36 +8,37 @@ func main() {
 	fmt.Scan(&weight, &nCows)
 
 	cows := make([]int, nCows)
-	for i := 0; i < nCows; i++ {
+	for i := range cows {
 		fmt.Scan(&cows[i])
 	}
 
-	dp := make([][]int, weight+1)
-	dp[0] = make([]int, nCows+1)
+	dp := make([][]int, nCows+1)
+	dp[0] = make([]int, weight+1)
 
-	for i := 1; i <= weight; i++ {
+	for i := 1; i <= nCows; i++ {
 
-		dp[i] = make([]int, nCows+1)
+		currentCow := cows[i-1]
+		dp[i] = make([]int, weight+1)
 
-		for j, cowWeight := range cows {
+		for j := 1; j <= weight; j++ {
 
-			result := dp[i][j]
+			result := dp[i-1][j]
 
-			weightRemaining := i - cowWeight
+			weightRemaining := j - currentCow
 			if weightRemaining < 0 {
 				continue
 			}
 
-			weightIfTake := dp[weightRemaining][j]
-			weightIfTake += cowWeight
-
+			weightIfTake := dp[i-1][weightRemaining] + currentCow
 			if weightIfTake > result {
 				result = weightIfTake
 			}
 
-			dp[i][j+1] = result
+			dp[i][j] = result
 		}
+
+		dp[i-1] = nil
 	}
 
-	fmt.Println(dp[weight][nCows])
+	fmt.Println(dp[nCows][weight])
 }
