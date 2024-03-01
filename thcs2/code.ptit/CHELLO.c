@@ -10,9 +10,9 @@ Output:
 Hello PTIT.
 */
 
-int puts(const char *str);
+#include <unistd.h>
 
 int main(void) {
-	puts("Hello PTIT.");
+	write(STDOUT_FILENO, "Hello PTIT.\n", 13);
 	return 0;
 }
