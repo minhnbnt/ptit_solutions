@@ -7,7 +7,7 @@ type TreeNode struct {
 	left, right *TreeNode
 }
 
-func (self *TreeNode) IsEqual(other *TreeNode) bool {
+func (self *TreeNode) Equal(other *TreeNode) bool {
 
 	if self == nil && other == nil {
 		return true
@@ -21,11 +21,11 @@ func (self *TreeNode) IsEqual(other *TreeNode) bool {
 		return false
 	}
 
-	if !self.left.IsEqual(other.left) {
+	if !self.left.Equal(other.left) {
 		return false
 	}
 
-	if !self.right.IsEqual(other.right) {
+	if !self.right.Equal(other.right) {
 		return false
 	}
 
@@ -78,7 +78,7 @@ func main() {
 		root1 := BuildTree()
 		root2 := BuildTree()
 
-		if root1.IsEqual(root2) {
+		if root1.Equal(root2) {
 			fmt.Println(1)
 		} else {
 			fmt.Println(0)
