@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define DEQUE_INIT_CAP 10
+
 typedef struct {
 
 	int *array;
-	size_t size, capacity;
+	size_t capacity, size;
 
 	size_t begin, end;
 
@@ -13,9 +15,9 @@ typedef struct {
 
 Deque Deque_new(void) {
 
-	Deque new_deque = { .array = (int *)malloc(sizeof(int) * 10),
+	Deque new_deque = { .array = (int *)malloc(sizeof(int) * DEQUE_INIT_CAP),
+		                .capacity = DEQUE_INIT_CAP,
 		                .size = 0,
-		                .capacity = 10,
 		                .begin = 0,
 		                .end = 0 };
 

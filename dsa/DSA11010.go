@@ -8,10 +8,6 @@ type TreeNode struct {
 	left, right *TreeNode
 }
 
-func NewNode(value int) *TreeNode {
-	return &TreeNode{value: value, left: nil, right: nil}
-}
-
 func FillDepth(root *TreeNode) int {
 
 	if root == nil {
@@ -53,12 +49,12 @@ func main() {
 
 			ptr, has := valueMap[parent]
 			if !has {
-				root = NewNode(parent)
+				root = &TreeNode{value: parent}
 				valueMap[parent] = root
 				ptr = root
 			}
 
-			newNode := NewNode(child)
+			newNode := &TreeNode{value: child}
 			valueMap[child] = newNode
 
 			var direction string
