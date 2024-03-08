@@ -16,17 +16,17 @@ func (self *TreeNode) IsLeaf() bool {
 	return self.left == nil && self.right == nil
 }
 
-func SumOfRightLeafNode(root *TreeNode) int {
+func (self *TreeNode) SumOfRightLeafNode() int {
 
-	if root == nil {
+	if self == nil {
 		return 0
 	}
 
-	sum := SumOfRightLeafNode(root.left)
-	sum += SumOfRightLeafNode(root.right)
+	sum := self.left.SumOfRightLeafNode()
+	sum += self.right.SumOfRightLeafNode()
 
-	if root.right.IsLeaf() {
-		sum += root.right.value
+	if self.right.IsLeaf() {
+		sum += self.right.value
 	}
 
 	return sum
@@ -71,6 +71,6 @@ func main() {
 			}
 		}
 
-		fmt.Println(SumOfRightLeafNode(root))
+		fmt.Println(root.SumOfRightLeafNode())
 	}
 }
