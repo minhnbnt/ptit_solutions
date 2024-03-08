@@ -3,10 +3,8 @@ import java.util.*;
 class Finder {
 
 	private HashMap<Integer, TreeSet<Integer>> adjList;
-	private LinkedHashSet<Integer> visited;
 
 	public Finder() {
-		visited = new LinkedHashSet<>();
 		adjList = new HashMap<>();
 	}
 
@@ -16,6 +14,8 @@ class Finder {
 	}
 
 	public LinkedHashSet<Integer> BFS(int start) {
+
+		LinkedHashSet<Integer> visited = new LinkedHashSet<>();
 
 		Queue<Integer> queue = new ArrayDeque<>();
 		queue.offer(start);
@@ -39,7 +39,7 @@ class Finder {
 	}
 }
 
-public class Main {
+public class DSA09004 {
 
 	static final Scanner stdin = new Scanner(System.in);
 
