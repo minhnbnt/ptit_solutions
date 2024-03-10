@@ -27,8 +27,9 @@ public:
 	}
 
 	std::function<bool(int, int)> get(void) const {
-		return
-		    [this](int a, int b) { return index_map.at(a) < index_map.at(b); };
+		return [this](int a, int b) { //
+			return index_map.at(a) < index_map.at(b);
+		};
 	}
 };
 
@@ -48,16 +49,15 @@ void fill_tree(std::unique_ptr<TreeNode<T>> &root, T data,
 	}
 }
 
-template <typename Iter>
 std::unique_ptr<TreeNode<int>>
-get_tree_by_levelorder(Iter begin, Iter end,
+get_tree_by_levelorder(const std::vector<int> &levelorder,
                        std::function<bool(int, int)> comparator) {
 
-	auto root = std::make_unique<TreeNode<int>>(*begin);
+	std::unique_ptr<TreeNode<int>> root;
 
-	std::for_each(begin + 1, end, [&root, comparator](int data) {
-		fill_tree(root, data, comparator);
-	});
+	for (int element : levelorder) {
+		fill_tree(root, element, comparator);
+	}
 
 	return root;
 }
@@ -91,8 +91,7 @@ int main(void) {
 
 		const Comparator comparator(inorder);
 
-		auto root = get_tree_by_levelorder(levelorder.begin(), levelorder.end(),
-		                                   comparator.get());
+		auto root = get_tree_by_levelorder(levelorder, comparator.get());
 
 		postorder_transversval(root.get());
 		std::cout << std::endl;
