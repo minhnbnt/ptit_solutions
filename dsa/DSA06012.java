@@ -17,9 +17,7 @@ public class DSA06012 {
 			int __size = stdin.nextInt();
 			int take = stdin.nextInt();
 
-			stdin.skip("\\s+");
-
-			String[] tokens = stdin.nextLine().split("\\s+");
+			String[] tokens = stdin.skip("\\s+").nextLine().split("\\s+");
 
 			List<Integer> array = Arrays.stream(tokens)
 			                          .parallel()
