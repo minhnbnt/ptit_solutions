@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -21,12 +22,13 @@ public class DSA06012 {
 			String[] tokens = stdin.nextLine().split("\\s+");
 
 			List<Integer> array = Arrays.stream(tokens)
+			                          .parallel()
 			                          .mapToInt(Integer::parseInt)
 			                          .boxed()
 			                          .collect(Collectors.toList());
 
 			array.stream()
-			    .sorted((a, b) -> b - a)
+			    .sorted(Comparator.reverseOrder())
 			    .limit(take)
 			    .forEach((x) -> System.out.printf("%d ", x));
 
