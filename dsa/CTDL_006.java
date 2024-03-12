@@ -13,8 +13,8 @@ public class CTDL_006 {
 
 		int size = stdin.nextInt();
 
-		List<Integer> linkedList  = new LinkedList<>();
-		for (int i  =0; i < size; i++) {
+		List<Integer> linkedList = new LinkedList<>();
+		for (int i = 0; i < size; i++) {
 			linkedList.add(stdin.nextInt());
 		}
 
