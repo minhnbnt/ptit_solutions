@@ -8,9 +8,11 @@ func main() {
 	fmt.Scan(&size)
 
 	slice := make([]int, size)
-	for i := 0; i < size; i++ {
+	for i := range slice {
 		fmt.Scan(&slice[i])
 	}
+
+	result := 0
 
 	dp := make([]int, size)
 	for i, current := range slice {
@@ -23,12 +25,9 @@ func main() {
 		}
 
 		dp[i] = resultBefore + 1
-	}
 
-	result := 0
-	for _, x := range dp {
-		if result < x {
-			result = x
+		if result < dp[i] {
+			result = dp[i]
 		}
 	}
 
