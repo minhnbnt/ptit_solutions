@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DSA06047 {
 
@@ -9,7 +11,7 @@ public class DSA06047 {
 
 		final List<Long> squared = edges.stream()
 		                               .map((edge) -> (long)edge * edge)
-		                               .sorted((a, b) -> a.compareTo(b))
+		                               .sorted(Comparator.naturalOrder())
 		                               .collect(Collectors.toList());
 
 		for (int i = 2; i < squared.size(); ++i) {
@@ -43,11 +45,11 @@ public class DSA06047 {
 		while (cases-- > 0) {
 
 			int size = stdin.nextInt();
-			List<Integer> edges = new ArrayList<>(size);
 
-			for (int i = 0; i < size; ++i) {
-				edges.add(stdin.nextInt());
-			}
+			List<Integer> edges = IntStream.range(0, size)
+			                          .map(i -> stdin.nextInt())
+			                          .boxed()
+			                          .collect(Collectors.toList());
 
 			System.out.println(has3Pytago(edges) ? "YES" : "NO");
 		}

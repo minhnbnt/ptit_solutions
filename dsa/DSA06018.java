@@ -1,9 +1,9 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-public class DSA01025 {
+public class DSA06018 {
 
 	static Scanner stdin = new Scanner(System.in);
 
@@ -13,17 +13,15 @@ public class DSA01025 {
 
 		while (cases-- > 0) {
 
-			int _size = stdin.nextInt();
-			stdin.skip("\\s+");
+			final int size = stdin.nextInt();
 
-			TreeSet<Integer> elements =
-			    Arrays.stream(stdin.nextLine().split("\\s+"))
-			        .mapToInt(Integer::parseInt)
+			TreeSet<Integer> set =
+			    IntStream.range(0, size)
+			        .map(i -> stdin.nextInt())
 			        .boxed()
 			        .collect(Collectors.toCollection(TreeSet::new));
 
-			int result = elements.last() - elements.first() -
-			             elements.size() + 1;
+			final int result = set.last() - set.first() - set.size() + 1;
 			System.out.println(result);
 		}
 	}

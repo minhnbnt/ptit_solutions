@@ -6,7 +6,7 @@ class Generator {
 
 	static final Set<Integer> set = new LinkedHashSet<>();
 
-	public static void all_primutation(int size) {
+	public static void allPermutation(int size) {
 
 		if (set.size() == size) {
 
@@ -26,25 +26,26 @@ class Generator {
 
 			set.add(i);
 
-			all_primutation(size);
+			allPermutation(size);
 
 			set.remove(i);
 		}
 	}
 }
 
-public class Solution {
+public class DSA01005 {
 
 	static final java.util.Scanner stdin = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
 		int cases = stdin.nextInt();
+
 		while (cases-- > 0) {
 
-			int size = stdin.nextInt();
+			final int size = stdin.nextInt();
 
-			Generator.all_primutation(size);
+			Generator.allPermutation(size);
 			System.out.append('\n');
 		}
 	}

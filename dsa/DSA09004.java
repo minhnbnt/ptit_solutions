@@ -2,7 +2,7 @@ import java.util.*;
 
 class Finder {
 
-	private HashMap<Integer, TreeSet<Integer>> adjList;
+	private final HashMap<Integer, TreeSet<Integer>> adjList;
 
 	public Finder() {
 		adjList = new HashMap<>();

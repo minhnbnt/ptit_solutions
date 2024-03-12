@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class DSA03010 {
+public class DSA06012 {
 
 	static final Scanner stdin = new Scanner(System.in);
 
@@ -13,12 +13,14 @@ public class DSA03010 {
 
 		while (cases-- > 0) {
 
-			int _size = stdin.nextInt();
+			int __size = stdin.nextInt();
 			int take = stdin.nextInt();
 
 			stdin.skip("\\s+");
 
-			List<Integer> array = Arrays.stream(stdin.nextLine().split("\\s+"))
+			String[] tokens = stdin.nextLine().split("\\s+");
+
+			List<Integer> array = Arrays.stream(tokens)
 			                          .mapToInt(Integer::parseInt)
 			                          .boxed()
 			                          .collect(Collectors.toList());

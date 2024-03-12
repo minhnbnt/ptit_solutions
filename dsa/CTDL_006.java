@@ -2,7 +2,8 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CTDL_006 {
 
@@ -12,15 +13,14 @@ public class CTDL_006 {
 
 		int size = stdin.nextInt();
 
-		List<Integer> linkedList = new LinkedList<>();
-		for (int i = 0; i < size; i++) {
+		List<Integer> linkedList  = new LinkedList<>();
+		for (int i  =0; i < size; i++) {
 			linkedList.add(stdin.nextInt());
 		}
 
-		Set<Integer> set = new LinkedHashSet<>();
-		linkedList.forEach(x -> set.add(x));
+		new LinkedHashSet<>(linkedList)
+		    .forEach(element -> System.out.printf("%d ", element));
 
-		set.forEach(element -> System.out.printf("%d ", element));
 		System.out.append('\n');
 	}
 }

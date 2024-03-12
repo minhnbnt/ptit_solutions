@@ -1,8 +1,7 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DSA06022 {
 
@@ -14,12 +13,10 @@ public class DSA06022 {
 
 		while (cases-- > 0) {
 
-			int _size = stdin.nextInt();
-			stdin.skip("\\s+");
+			final int size = stdin.nextInt();
 
-			Set<Integer> numbers = Arrays.stream(stdin.nextLine().split("\\s+"))
-			                           .parallel()
-			                           .mapToInt(Integer::parseInt)
+			Set<Integer> numbers = IntStream.range(0, size)
+			                           .map(i -> stdin.nextInt())
 			                           .boxed()
 			                           .collect(Collectors.toSet());
 
