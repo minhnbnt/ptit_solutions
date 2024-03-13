@@ -9,8 +9,11 @@ for line in sys.stdin:
         stack.append(command[1])
     elif command[0] == "pop":
         stack.pop()
-    elif command[0] == "show":
-        if len(stack) == 0:
-            print("empty")
-        else:
-            print(*stack)
+
+    elif command[0] != "show":
+        continue
+
+    if len(stack) == 0:
+        print("empty")
+    else:
+        print(*stack)

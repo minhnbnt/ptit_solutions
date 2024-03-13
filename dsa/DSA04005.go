@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-var fibs = []int{0, 1, 1}
+var fibs = []uint64{0, 1, 1}
 
-func CharAt(nth, index int) string {
+func CharAt(nth uint, index uint64) byte {
 
 	if nth == 1 {
-		return "A"
+		return 'A'
 	}
 
 	if nth == 2 {
-		return "B"
+		return 'B'
 	}
 
 	if index < fibs[nth-2] {
@@ -21,17 +21,9 @@ func CharAt(nth, index int) string {
 	}
 }
 
-func Init(nth int) {
-
-	for {
-
-		fibsLen := len(fibs)
-
-		if fibsLen > nth {
-			break
-		}
-
-		fibs = append(fibs, fibs[fibsLen-1]+fibs[fibsLen-2])
+func InitFibs(nth uint) {
+	for i := len(fibs); uint(i) < nth; i++ {
+		fibs = append(fibs, fibs[i-1]+fibs[i-2])
 	}
 }
 
@@ -42,11 +34,12 @@ func main() {
 
 	for ; cases > 0; cases-- {
 
-		var nth, index int
+		var nth uint
+		var index uint64
 		fmt.Scan(&nth, &index)
 
-		Init(nth)
+		InitFibs(nth)
 
-		fmt.Println(CharAt(nth, index-1))
+		fmt.Printf("%c\n", CharAt(nth, index-1))
 	}
 }

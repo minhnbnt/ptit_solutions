@@ -9,10 +9,8 @@ def BFS_Find(graph, start, end) -> int:
     visited[start] = 0
 
     while end not in visited:
-        current = queue[0]
+        current = queue.popleft()
         distance = visited[current]
-
-        queue.popleft()
 
         for to in graph[current]:
             if to in visited:

@@ -5,7 +5,7 @@ def isValidPairString(string: str) -> bool:
     stack = []
 
     for char in string:
-        if char in ["(", "[", "{"]:
+        if char in VALID_PAIRS:
             stack.append(char)
             continue
 
