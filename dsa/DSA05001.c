@@ -8,8 +8,7 @@ size_t longest_common_substr(const char *s1, const char *s2) {
 
 	const size_t s1_len = strlen(s1), s2_len = strlen(s2);
 
-	size_t i, j;
-	size_t **dp = (size_t **)malloc(sizeof(size_t *) * (s1_len + 1));
+	size_t i, j, *dp[s1_len];
 	dp[0] = (size_t *)calloc(s2_len + 1, sizeof(size_t));
 
 	for (i = 0; i < s1_len; i++) {
@@ -31,7 +30,7 @@ size_t longest_common_substr(const char *s1, const char *s2) {
 
 	const size_t result = dp[s1_len][s2_len];
 
-	free(dp[s1_len]), free(dp);
+	free(dp[s1_len]);
 	return result;
 }
 
