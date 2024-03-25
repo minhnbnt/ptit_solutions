@@ -1,57 +1,52 @@
-#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
 typedef struct {
-	int price, weight;
+
+	unsigned price;
+	unsigned weight;
+
 } Item;
 
-int main() {
+int main(void) {
 
 	unsigned cases;
 	scanf("%u", &cases);
 
-	while (cases-- > 0) {
+	while (cases--) {
 
-		int number_of_item, capacity, i, j;
-		scanf("%d%d", &number_of_item, &capacity);
+		unsigned number_of_item, capacity, i, j;
+		scanf("%u%u", &number_of_item, &capacity);
 
 		Item items[number_of_item];
 		for (i = 0; i < number_of_item; i++) {
-			scanf("%d", &items[i].weight);
+			scanf("%u", &items[i].weight);
 		}
 		for (i = 0; i < number_of_item; i++) {
-			scanf("%d", &items[i].price);
+			scanf("%u", &items[i].price);
 		}
 
-		int dp[capacity + 1][number_of_item + 1];
-		memset(dp[0], 0, sizeof(int) * number_of_item);
+		unsigned dp[capacity + 1];
+		memset(dp, 0, sizeof(dp));
 
-		for (i = 1; i <= capacity; i++) {
+		for (i = 0; i < number_of_item; i++) {
 
-			dp[i][0] = 0;
+			unsigned prev_dp[capacity + 1];
+			memcpy(prev_dp, dp, sizeof(dp));
 
-			for (j = 1; j <= number_of_item; j++) {
+			for (j = items[i].weight; j <= capacity; j++) {
 
-				dp[i][j] = dp[i][j - 1];
+				const unsigned capacity_remaining = j - items[i].weight;
+				const unsigned price_if_take =
+				    prev_dp[capacity_remaining] + items[i].price;
 
-				const Item current_item = items[j - 1];
-
-				const int weight_remaining = i - current_item.weight;
-
-				if (weight_remaining < 0) {
-					continue;
-				}
-
-				const int price_if_take =
-				    dp[weight_remaining][j - 1] + current_item.price;
-				if (price_if_take > dp[i][j]) {
-					dp[i][j] = price_if_take;
+				if (price_if_take > dp[j]) {
+					dp[j] = price_if_take;
 				}
 			}
 		}
 
-		printf("%d\n", dp[capacity][number_of_item]);
+		printf("%u\n", dp[capacity]);
 		fflush(stdout);
 	}
 
