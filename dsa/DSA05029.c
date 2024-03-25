@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-unsigned long long number_of_decoded(char *nums) {
+unsigned long long number_of_decoded(const char *nums) {
 
 	if (nums[0] == '0') {
 		return 0;
