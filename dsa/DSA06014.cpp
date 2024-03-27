@@ -63,9 +63,10 @@ int main(void) {
 		unsigned sum;
 		std::cin >> sum;
 
-		const auto result = has_pair_primes(sum);
-		if (result.first != 0) {
-			std::cout << result.first << ' ' << result.second;
+		const auto [x, y] = has_pair_primes(sum);
+
+		if (x != 0) {
+			std::cout << x << ' ' << y;
 		} else {
 			std::cout << -1;
 		}
