@@ -53,11 +53,11 @@ int main(void) {
 
 	while (cases--) {
 
-		unsigned rank, edges, start;
+		unsigned i, rank, edges, start;
 		std::cin >> rank >> edges >> start;
 
 		Graph g;
-		for (unsigned i = 0; i < edges; i++) {
+		for (i = 0; i < edges; i++) {
 
 			int a, b;
 			std::cin >> a >> b;

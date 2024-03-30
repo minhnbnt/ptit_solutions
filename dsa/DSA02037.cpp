@@ -3,9 +3,11 @@
 #include <iostream>
 #include <vector>
 
+using std::vector;
+
 bool is_prime(size_t n) {
 
-	static std::vector<bool> vec{ false, false };
+	static vector<bool> vec{ false, false };
 	const size_t prev_size = vec.size();
 
 	if (n >= prev_size) {
@@ -28,11 +30,10 @@ bool is_prime(size_t n) {
 	return vec[n];
 }
 
-template <typeame Iter>
-void generate(Iter begin, Iter end,
-              std::vector<std::vector<int>> &output) {
+template <typename Iter>
+void generate(Iter begin, Iter end, vector<vector<int>> &output) {
 
-	static std::vector<int> current;
+	static vector<int> current;
 	static long long sum = 0;
 
 	if (is_prime(sum)) {
@@ -53,15 +54,16 @@ void generate(Iter begin, Iter end,
 	}
 }
 
-bool comparator(const std::vector<int> &a, const std::vector<int> &b) {
+bool comparator(const vector<int> &a, const vector<int> &b) {
 
 	const size_t size_a = a.size(), size_b = b.size();
 	const size_t min_size = std::min(size_a, size_b);
 
-	for (size_t i = 0; i < min_size; i++)
+	for (size_t i = 0; i < min_size; i++) {
 		if (a[i] != b[i]) {
 			return a[i] < b[i];
 		}
+	}
 
 	return size_a < size_b;
 }
@@ -79,20 +81,21 @@ int main(void) {
 		size_t size;
 		std::cin >> size;
 
-		std::vector<int> vec(size);
+		vector<int> vec(size);
 		for (int &x : vec) {
 			std::cin >> x;
 		}
 
-		std::vector<std::vector<int>> results;
+		vector<vector<int>> results;
 		generate(vec.begin(), vec.end(), results);
 
-		for (std::vector<int> &res : results) {
-			std::sort(res.begin(), res.end(), std::greater<int>());
+		for (vector<int> &res : results) {
+			std::sort(std::begin(res), std::end(res), std::greater<int>());
 		}
 
-		std::sort(results.begin(), results.end(), comparator);
-		for (const std::vector<int> &res : results) {
+		std::sort(std::begin(results), std::end(results), comparator);
+
+		for (const vector<int> &res : results) {
 			for (int element : res) {
 				std::cout << element << ' ';
 			}

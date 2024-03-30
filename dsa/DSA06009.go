@@ -8,7 +8,6 @@ func CountTwoSum(slice []int, target int) int {
 	hashMap := map[int]int{}
 
 	for _, element := range slice {
-
 		result += hashMap[target-element]
 		hashMap[element]++
 	}
@@ -27,7 +26,7 @@ func main() {
 		fmt.Scan(&size, &target)
 
 		slice := make([]int, size)
-		for i := 0; i < size; i++ {
+		for i := range slice {
 			fmt.Scan(&slice[i])
 		}
 

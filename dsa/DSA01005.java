@@ -35,7 +35,7 @@ class Generator {
 
 public class DSA01005 {
 
-	static final java.util.Scanner stdin = new Scanner(System.in);
+	static final Scanner stdin = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
