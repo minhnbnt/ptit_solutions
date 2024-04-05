@@ -9,13 +9,15 @@ import (
 
 func main() {
 
-	stdin := bufio.NewReader(os.Stdin)
+	stdin := bufio.NewScanner(os.Stdin)
 	stdout := bufio.NewWriter(os.Stdout)
 
 	defer stdout.Flush()
 
-	line, _ := stdin.ReadString('\n')
-	rank, _ := strconv.Atoi(strings.TrimSpace(line))
+	stdin.Scan()
+	line := strings.TrimSpace(stdin.Text())
+
+	rank, _ := strconv.Atoi(line)
 
 	matrix := make([][]bool, rank)
 	for i := range matrix {
@@ -24,7 +26,8 @@ func main() {
 
 	for i := 0; i < rank; i++ {
 
-		line, _ = stdin.ReadString('\n')
+		stdin.Scan()
+		line := stdin.Text()
 
 		for _, token := range strings.Fields(line) {
 
