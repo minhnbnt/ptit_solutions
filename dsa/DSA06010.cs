@@ -1,30 +1,26 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
-class Program {
+internal class Program {
+	public static void Main() {
 
-	static void Main() {
+		var cases = int.Parse(Console.ReadLine());
 
-		int cases;
-		int.TryParse(Console.ReadLine(), out cases);
+		for (; cases > 0; cases--) {
 
-		while (cases-- > 0) {
+			int size;
+			int.TryParse(Console.ReadLine(), out size);
 
-			int _size;
-			Int32.TryParse(Console.ReadLine(), out _size);
+			Console.ReadLine()
+			    .TrimEnd()
+			    .Split()
+			    .SelectMany(num => num)
+			    .Distinct()
+			    .OrderBy(digit => digit)
+			    .ToList()
+			    .ForEach(digit => Console.Write("{0} ", digit));
 
-			var charSet = new SortedSet<char>();
-			var tokens = Console.ReadLine().Split(' ');
-
-			foreach (string token in tokens) {
-				foreach (char c in token) {
-					charSet.Add(c);
-				}
-			}
-
-			foreach (char c in charSet) {
-				Console.Write(c + " ");
-			}
 			Console.Write('\n');
 		}
 	}
