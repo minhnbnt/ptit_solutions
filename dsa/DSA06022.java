@@ -1,36 +1,35 @@
+import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DSA06022 {
-
-	static final Scanner stdin = new Scanner(System.in);
-
 	public static void main(String[] args) {
 
-		int cases = stdin.nextInt();
+		try (Scanner stdin = new Scanner(System.in)) {
 
-		while (cases-- > 0) {
+			int cases = stdin.nextInt();
 
-			final int size = stdin.nextInt();
+			for (; cases > 0; cases--) {
 
-			Set<Integer> numbers = IntStream.range(0, size)
-			                           .map(i -> stdin.nextInt())
-			                           .boxed()
-			                           .collect(Collectors.toSet());
+				final int size = stdin.nextInt();
 
-			if (numbers.size() == 1) {
-				System.out.println(-1);
-				continue;
+				List<?> numbers = IntStream.range(0, size)
+				                      .map(i -> stdin.nextInt())
+				                      .distinct()
+				                      .sorted()
+				                      .limit(2)
+				                      .boxed()
+				                      .collect(Collectors.toList());
+
+				if (numbers.size() < 2) {
+					System.out.println(-1);
+					continue;
+				}
+
+				numbers.forEach(x -> System.out.printf("%d ", x));
+				System.out.append('\n');
 			}
-
-			numbers.stream()
-			    .sorted(Integer::compare)
-			    .limit(2)
-			    .forEach(element -> System.out.print(element + " "));
-
-			System.out.append('\n');
 		}
 	}
 }
