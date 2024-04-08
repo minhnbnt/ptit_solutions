@@ -3,6 +3,10 @@
 
 typedef unsigned long long u64;
 
+void copy(const int *begin, const int *end, int *dst) {
+	memcpy(dst, begin, (end - begin) * sizeof(int));
+}
+
 u64 number_of_pair(int *begin, int *end) {
 
 	const size_t distance = end - begin;
@@ -20,12 +24,12 @@ u64 number_of_pair(int *begin, int *end) {
 	while (1) {
 
 		if (ptr_left == middle) {
-			memcpy(ptr, ptr_right, (end - ptr_right) * sizeof(int));
+			copy(ptr_right, end, ptr);
 			break;
 		}
 
 		if (ptr_right == end) {
-			memcpy(ptr, ptr_left, (middle - ptr_left) * sizeof(int));
+			copy(ptr_left, middle, ptr);
 			break;
 		}
 
@@ -44,7 +48,7 @@ u64 number_of_pair(int *begin, int *end) {
 		++ptr;
 	}
 
-	memcpy(begin, merged, sizeof(merged));
+	copy(merged, merged + distance, begin);
 
 	return result;
 }
