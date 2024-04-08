@@ -19,19 +19,19 @@ func main() {
 		var size int
 		fmt.Scan(&size)
 
-		slice := make([]ValueIndex, size)
-		for i := 0; i < size; i++ {
-			fmt.Scan(&slice[i].value)
-			slice[i].index = i
+		array := make([]ValueIndex, size)
+		for i := range array {
+			fmt.Scan(&array[i].value)
+			array[i].index = i
 		}
 
-		sort.Slice(slice, func(i, j int) bool {
+		sort.Slice(array, func(i, j int) bool {
 
-			if slice[i].value != slice[j].value {
-				return slice[i].value < slice[j].value
+			if array[i].value != array[j].value {
+				return array[i].value < array[j].value
 			}
 
-			return slice[i].index < slice[j].index
+			return array[i].index < array[j].index
 		})
 
 		j := 0
@@ -39,12 +39,18 @@ func main() {
 
 		for i := 1; i < size; i++ {
 
-			distance := slice[i].index - slice[j].index
-			for ; distance < 0 && i > j; j++ {
-				distance = slice[i].index - slice[j].index
+			var distance int
+
+			for ; j < i; j++ {
+
+				distance = array[i].index - array[j].index
+
+				if distance > 0 {
+					break
+				}
 			}
 
-			if slice[i].value == slice[j].value {
+			if array[i].value == array[j].value {
 				continue
 			}
 
