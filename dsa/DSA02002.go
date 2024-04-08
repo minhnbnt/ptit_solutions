@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
 
@@ -17,7 +20,7 @@ func main() {
 			fmt.Scan(&array[i])
 		}
 
-		results := [][]int{}
+		results := make([][]int, 0)
 
 		for {
 
@@ -28,9 +31,9 @@ func main() {
 				break
 			}
 
-			newArray := []int{}
-			for i := 1; i < arrayLength; i++ {
-				newArray = append(newArray, array[i]+array[i-1])
+			newArray := make([]int, arrayLength-1)
+			for i := range newArray {
+				newArray[i] = array[i] + array[i+1]
 			}
 
 			array = newArray
@@ -39,35 +42,40 @@ func main() {
 		Reverse(results)
 
 		for _, a := range results {
-
-			endIndex := len(a) - 1
-
-			fmt.Print("[")
-
-			for i, element := range a {
-
-				if i == endIndex {
-					fmt.Print(element)
-					break
-				}
-
-				fmt.Printf("%d ", element)
-			}
-
-			fmt.Print("] ")
+			PrintArray(a)
 		}
 
 		fmt.Println()
 	}
 }
 
+func PrintArray(array []int) {
+
+	endIndex := len(array) - 1
+
+	fmt.Print("[")
+
+	for i, element := range array {
+
+		if i == endIndex {
+			fmt.Print(element)
+			break
+		}
+
+		fmt.Printf("%d ", element)
+	}
+
+	fmt.Print("] ")
+}
+
 func Reverse[T any](array []T) {
 
-	for i, j := 0, len(array)-1; i < j; {
+	swapFunc := reflect.Swapper(array)
 
-		array[i], array[j] = array[j], array[i]
+	left, right := 0, len(array)-1
 
-		i++
-		j--
+	for left < right {
+		swapFunc(left, right)
+		left, right = left+1, right-1
 	}
 }
