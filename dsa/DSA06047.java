@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -9,19 +7,19 @@ public class DSA06047 {
 
 	static boolean has3Pytago(List<Integer> edges) {
 
-		final List<Long> squared = edges.stream()
-		                               .map((edge) -> (long)edge * edge)
-		                               .sorted(Comparator.naturalOrder())
-		                               .collect(Collectors.toList());
+		final long[] squared = edges.stream()
+		                           .sorted()
+		                           .mapToLong(edge -> (long)edge * edge)
+		                           .toArray();
 
-		for (int i = 2; i < squared.size(); ++i) {
+		for (int i = 2; i < squared.length; i++) {
 
 			int left = 0, right = i - 1;
-			final long hypoSquared = squared.get(i);
+			final long hypoSquared = squared[i];
 
 			while (left < right) {
 
-				final long sum = squared.get(left) + squared.get(right);
+				final long sum = squared[i] + squared[i];
 
 				if (sum < hypoSquared) {
 					++left;

@@ -1,4 +1,3 @@
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +15,9 @@ public class CTDL_006 {
 			linkedList.add(stdin.nextInt());
 		}
 
-		new LinkedHashSet<>(linkedList)
+		linkedList //
+		    .stream()
+		    .distinct()
 		    .forEach(element -> System.out.printf("%d ", element));
 
 		System.out.append('\n');

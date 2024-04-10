@@ -4,9 +4,9 @@ import java.util.Set;
 
 class Generator {
 
-	static final Set<Integer> set = new LinkedHashSet<>();
+	final Set<Integer> set = new LinkedHashSet<>();
 
-	public static void allPermutation(int size) {
+	public void allPermutation(int size) {
 
 		if (set.size() == size) {
 
@@ -39,13 +39,15 @@ public class DSA01005 {
 
 	public static void main(String[] args) {
 
+		Generator gen = new Generator();
+
 		int cases = stdin.nextInt();
 
-		while (cases-- > 0) {
+		for (; cases > 0; cases--) {
 
 			final int size = stdin.nextInt();
 
-			Generator.allPermutation(size);
+			gen.allPermutation(size);
 			System.out.append('\n');
 		}
 	}
