@@ -24,9 +24,9 @@ func (self *TreeNode) GetTheDeepestNode() *TreeNode {
 		front := queue.Front()
 		current := front.Value.(*TreeNode)
 
-		for _, ptr := range current.children {
-			ptr.depth = current.depth + 1
-			queue.PushBack(ptr)
+		for _, node := range current.children {
+			node.depth = current.depth + 1
+			queue.PushBack(node)
 		}
 
 		queue.Remove(front)
