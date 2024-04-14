@@ -14,13 +14,13 @@ func main() {
 	defer stdout.Flush()
 
 	buffer := list.New()
-	buffer.PushBack(byte('\n'))
+	buffer.PushBack('\n')
 
 	cursor := buffer.Front()
 
 	for {
 
-		keyPressed, _ := stdin.ReadByte()
+		keyPressed, _, _ := stdin.ReadRune()
 
 		if keyPressed == '\n' {
 			break
@@ -53,6 +53,6 @@ func main() {
 	}
 
 	for ptr := buffer.Front(); ptr != nil; ptr = ptr.Next() {
-		stdout.WriteByte(ptr.Value.(byte))
+		stdout.WriteRune(ptr.Value.(rune))
 	}
 }

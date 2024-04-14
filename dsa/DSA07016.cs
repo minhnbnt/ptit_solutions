@@ -15,6 +15,7 @@ internal class Program {
 			int currentNum = 1;
 
 			foreach (char c in input) {
+
 				currentNum += 1;
 
 				if (c == 'D') {
