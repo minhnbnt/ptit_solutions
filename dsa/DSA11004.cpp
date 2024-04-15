@@ -1,4 +1,5 @@
 #include <deque>
+#include <functional>
 #include <iostream>
 #include <memory>
 #include <unordered_map>
@@ -10,24 +11,29 @@ struct TreeNode {
 
 	TreeNode(int x) : value(x) {}
 
-	void level_transversal(void) const {
+	std::function<const TreeNode *(void)> level_transversal(void) const {
 
-		std::deque<const TreeNode *> pending{ this };
+		auto pending = std::make_shared<std::deque<const TreeNode *>>();
+		pending->push_back(this);
 
-		while (!pending.empty()) {
+		return [=](void) mutable {
+			while (!pending->empty()) {
 
-			const TreeNode *current = pending.front();
-			pending.pop_front();
+				const TreeNode *current = pending->front();
+				pending->pop_front();
 
-			if (current == NULL) {
-				continue;
+				if (current == NULL) {
+					continue;
+				}
+
+				pending->push_back(current->left.get());
+				pending->push_back(current->right.get());
+
+				return current;
 			}
 
-			std::cout << current->value << ' ';
-
-			pending.push_back(current->left.get());
-			pending.push_back(current->right.get());
-		}
+			return static_cast<const TreeNode *>(NULL);
+		};
 	}
 };
 
@@ -75,7 +81,19 @@ int main(void) {
 			}
 		}
 
-		root->level_transversal();
+		auto generator = root->level_transversal();
+
+		while (true) {
+
+			const TreeNode *current = generator();
+
+			if (current == NULL) {
+				break;
+			}
+
+			std::cout << current->value << ' ';
+		}
+
 		std::cout << std::endl;
 	}
 
