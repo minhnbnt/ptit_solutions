@@ -28,7 +28,7 @@ class Tree:
     def levelorderTransverse(self) -> Iterator[int]:
         queue = deque([self.root])
 
-        while len(queue) > 0:
+        while queue:
             current = queue.popleft()
 
             if current is None:
@@ -59,7 +59,6 @@ for _ in range(cases):
     tokens = input().split()
 
     for parent, child, direction in chunks(tokens, 3):
-
         if binaryTree.root is None:
             binaryTree.root = TreeNode(parent)
             nodeMap[parent] = binaryTree.root
