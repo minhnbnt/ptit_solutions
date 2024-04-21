@@ -15,11 +15,12 @@ typedef struct {
 
 Deque Deque_new(void) {
 
-	Deque new_deque = { .array = (int *)malloc(sizeof(int) * DEQUE_INIT_CAP),
-		                .capacity = DEQUE_INIT_CAP,
-		                .size = 0,
-		                .begin = 0,
-		                .end = 0 };
+	// clang-format off
+	Deque new_deque = {
+		.array = (int *)malloc(sizeof(int) * DEQUE_INIT_CAP),
+		.capacity = DEQUE_INIT_CAP, .size = 0, .begin = 0, .end = 0
+	};
+	// clang-format on
 
 	return new_deque;
 }
