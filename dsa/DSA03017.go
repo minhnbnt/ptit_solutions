@@ -12,7 +12,7 @@ func MinimumValue(s string, removeAttempt uint) uint64 {
 		charsCounter[c]++
 	}
 
-	values := []int{}
+	var values []int
 	for _, counter := range charsCounter {
 		values = append(values, counter)
 	}
