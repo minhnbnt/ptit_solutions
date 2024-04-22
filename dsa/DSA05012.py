@@ -9,11 +9,11 @@ def combination(n: int, k: int) -> int:
     if n < k:
         return 0
 
-    if k == 0 or k == n:
-        return 1
-
     if k > n / 2:
         k = n - k
+
+    if k == 0:
+        return 1
 
     result = combination(n - 1, k - 1)
     result += combination(n - 1, k)
