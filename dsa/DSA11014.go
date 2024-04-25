@@ -59,7 +59,7 @@ func main() {
 			fmt.Scan(&direction)
 
 			/* for some reason, finding parent node
-			   before creating child node give us WA :0 */
+			   after creating child node give us WA :0 */
 			parentNode := nodesMap[parent]
 
 			childNode := &TreeNode{value: child}
