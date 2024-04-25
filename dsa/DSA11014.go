@@ -16,17 +16,17 @@ func (self *TreeNode) IsLeaf() bool {
 	return self.left == nil && self.right == nil
 }
 
-func (self *TreeNode) SumOfRightLeafNode() int {
+func (self *TreeNode) SumOfRightLeavesNodes() int {
 
 	if self == nil {
 		return 0
 	}
 
-	sum := self.left.SumOfRightLeafNode()
-	sum += self.right.SumOfRightLeafNode()
+	sum := self.left.SumOfRightLeavesNodes()
+	sum += self.right.SumOfRightLeavesNodes()
 
-	if self.right.IsLeaf() {
-		sum += self.right.value
+	if right := self.right; right.IsLeaf() {
+		sum += right.value
 	}
 
 	return sum
@@ -43,34 +43,36 @@ func main() {
 		fmt.Scan(&insertAttempt)
 
 		var root *TreeNode
-		valueMap := map[int]*TreeNode{}
+		nodesMap := make(map[int]*TreeNode)
 
 		for ; insertAttempt > 0; insertAttempt-- {
 
 			var parent, child int
 			fmt.Scan(&parent, &child)
 
-			ptr, has := valueMap[parent]
-			if !has {
+			if root == nil {
 				root = &TreeNode{value: parent}
-				valueMap[parent] = root
-				ptr = root
+				nodesMap[parent] = root
 			}
-
-			newNode := &TreeNode{value: child}
-			valueMap[child] = newNode
 
 			var direction string
 			fmt.Scan(&direction)
 
+			/* for some reason, finding parent node
+			   before creating child node give us WA :0 */
+			parentNode := nodesMap[parent]
+
+			childNode := &TreeNode{value: child}
+			nodesMap[child] = childNode
+
 			switch direction {
 			case "L":
-				ptr.left = newNode
+				parentNode.left = childNode
 			case "R":
-				ptr.right = newNode
+				parentNode.right = childNode
 			}
 		}
 
-		fmt.Println(root.SumOfRightLeafNode())
+		fmt.Println(root.SumOfRightLeavesNodes())
 	}
 }
