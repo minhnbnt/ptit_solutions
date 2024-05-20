@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-unsigned long long number_of_decoded(const char *nums) {
+typedef unsigned long long u64;
+
+u64 number_of_decoded(const char *nums) {
 
 	if (nums[0] == '0') {
 		return 0;
@@ -10,7 +12,7 @@ unsigned long long number_of_decoded(const char *nums) {
 
 	const size_t length = strlen(nums);
 
-	unsigned long long dp[length + 1];
+	u64 dp[length + 1];
 	dp[0] = 1;
 
 	for (size_t i = 0; i < length; i++) {

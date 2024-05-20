@@ -1,16 +1,19 @@
-def allBitsString(length):
-    bits = []
+from typing import Iterator
+
+
+def allABStrings(length: int) -> Iterator[str]:
+    chars = []
 
     def generator():
-        if len(bits) == length:
-            yield bits
+        if len(chars) == length:
+            yield "".join(chars)
             return
 
-        for bit in [False, True]:
-            bits.append(bit)
+        for bit in ["A", "B"]:
+            chars.append(bit)
             yield from generator()
 
-            bits.pop()
+            chars.pop()
 
     yield from generator()
 
@@ -19,12 +22,7 @@ cases = int(input())
 for _ in range(cases):
     size = int(input())
 
-    for bitsStr in allBitsString(size):
-        result = ""
-
-        for bits in bitsStr:
-            result += "B" if bits else "A"
-
-        print(result, end=" ")
+    for string in allABStrings(size):
+        print(string, end=" ")
 
     print()
