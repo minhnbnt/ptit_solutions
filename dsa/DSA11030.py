@@ -1,39 +1,54 @@
-from collections import defaultdict, deque
+from __future__ import annotations
+
+from collections import deque
+from dataclasses import dataclass
+from typing import Deque, List
 
 
-def BFS_Find(graph, start, end) -> int:
-    queue = deque()
-    visited = dict()
+@dataclass
+class TreeNode:
+    value: int
+    connected: List[TreeNode]
 
-    queue.append(start)
-    visited[start] = 0
+    def connect(self, other: TreeNode) -> None:
+        self.connected.append(other)
+        other.connected.append(self)
 
-    while end not in visited:
-        current = queue.popleft()
-        distance = visited[current]
+    def distanceTo(self, target: int) -> int:
+        queue: Deque[TreeNode] = deque([self])
+        visited = {self.value: 0}
 
-        for to in graph[current]:
-            if to in visited:
-                continue
+        while target not in visited:
+            current = queue.popleft()
+            distance = visited[current.value]
 
-            queue.append(to)
-            visited[to] = distance + 1
+            for node in current.connected:
+                if node.value in visited:
+                    continue
 
-    return visited[end]
+                queue.append(node)
+                visited[node.value] = distance + 1
+
+        return visited[target]
 
 
 cases = int(input())
 for _ in range(cases):
-    graph = defaultdict(lambda: set())
+    nodeDict = dict()
+    numberOfNode = int(input())
 
-    numberOfEdge = int(input())
-    for _ in range(numberOfEdge - 1):
+    while len(nodeDict) < numberOfNode:
         a, b = map(int, input().split())
 
-        graph[a].add(b)
-        graph[b].add(a)
+        if a not in nodeDict:
+            nodeDict[a] = TreeNode(a, [])
 
-    attempt = int(input())
-    for _ in range(attempt):
-        start, end = map(int, input().split())
-        print(BFS_Find(graph, start, end))
+        if b not in nodeDict:
+            nodeDict[b] = TreeNode(b, [])
+
+        nodeDict[a].connect(nodeDict[b])
+
+    queries = int(input())
+    for _ in range(queries):
+        a, b = map(int, input().split())
+        print(nodeDict[a].distanceTo(b))
