@@ -11,15 +11,14 @@ type TreeNode struct {
 	children []*TreeNode
 }
 
-func WayFromRoot(node *TreeNode) {
+func (self *TreeNode) PathFromRoot() []int {
 
-	if node == nil {
-		return
+	if self == nil {
+		return nil
 	}
 
-	WayFromRoot(node.parent)
-
-	fmt.Printf("%v ", node.value)
+	path := self.parent.PathFromRoot()
+	return append(path, self.value)
 }
 
 func main() {
@@ -32,7 +31,7 @@ func main() {
 		var numberOfNode int
 		fmt.Scan(&numberOfNode)
 
-		nodeMap := map[int]*TreeNode{}
+		nodeMap := make(map[int]*TreeNode)
 		for i := 1; i < numberOfNode; i++ {
 
 			var parent, child int
@@ -41,33 +40,37 @@ func main() {
 			parentPtr, has := nodeMap[parent]
 			if !has {
 				root := &TreeNode{value: parent}
-
 				nodeMap[parent] = root
 				parentPtr = root
 			}
 
-			childPtr := &TreeNode{value: child, parent: parentPtr}
+			childPtr := &TreeNode{
+				parent: parentPtr,
+				value:  child,
+			}
+
 			nodeMap[child] = childPtr
 
 			parentPtr.children = append(parentPtr.children, childPtr)
 		}
 
-		leapNodes := []*TreeNode{}
+		leafNodes := []*TreeNode{}
 		for _, node := range nodeMap {
-
-			if len(node.children) != 0 {
-				continue
+			if len(node.children) == 0 {
+				leafNodes = append(leafNodes, node)
 			}
-
-			leapNodes = append(leapNodes, node)
 		}
 
-		sort.Slice(leapNodes, func(i, j int) bool {
-			return leapNodes[i].value < leapNodes[j].value
+		sort.Slice(leafNodes, func(i, j int) bool {
+			return leafNodes[i].value < leafNodes[j].value
 		})
 
-		for _, node := range leapNodes {
-			WayFromRoot(node)
+		for _, node := range leafNodes {
+
+			for _, value := range node.PathFromRoot() {
+				fmt.Printf("%v ", value)
+			}
+
 			fmt.Println()
 		}
 	}
