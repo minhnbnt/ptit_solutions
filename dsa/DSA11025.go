@@ -24,18 +24,17 @@ func (self *TreeNode) PreorderTransverse() {
 
 func GetTree(array []int, left int, right int) *TreeNode {
 
-	if left > right {
+	if left >= right {
 		return nil
 	}
 
-	middle := (left + right) / 2
+	middle := (left + right - 1) / 2
 
-	root := &TreeNode{value: array[middle]}
-
-	root.left = GetTree(array, left, middle-1)
-	root.right = GetTree(array, middle+1, right)
-
-	return root
+	return &TreeNode{
+		value: array[middle],
+		left:  GetTree(array, left, middle),
+		right: GetTree(array, middle+1, right),
+	}
 }
 
 func main() {
@@ -55,7 +54,7 @@ func main() {
 
 		sort.Ints(array)
 
-		root := GetTree(array, 0, size-1)
+		root := GetTree(array, 0, size)
 
 		root.PreorderTransverse()
 		fmt.Println()

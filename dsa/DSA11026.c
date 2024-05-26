@@ -28,16 +28,17 @@ TreeNode *new_node(int value) {
 	return new_node;
 }
 
-TreeNode *get_tree(const int *array, int left, int right) {
+TreeNode *get_tree(const int *begin, const int *end) {
 
-	if (left > right) return NULL;
+	if (begin >= end) return NULL;
 
-	const int middle = (left + right) / 2;
+	const size_t distance = end - begin;
+	const int *middle = begin + (distance - 1) / 2;
 
-	TreeNode *root = new_node(array[middle]);
+	TreeNode *root = new_node(*middle);
 
-	root->left = get_tree(array, left, middle - 1);
-	root->right = get_tree(array, middle + 1, right);
+	root->left = get_tree(begin, middle);
+	root->right = get_tree(middle + 1, end);
 
 	return root;
 }
@@ -73,7 +74,7 @@ int main(void) {
 
 		qsort(array, size, sizeof(int), comparator);
 
-		TreeNode *root = get_tree(array, 0, size - 1);
+		TreeNode *root = get_tree(array, array + size);
 
 		postorder_transverse(root);
 		putchar('\n');

@@ -58,11 +58,11 @@ int is_full_binary_tree(Node *root) {
 		return 1;
 	}
 
-	if (root->left != NULL && root->right == NULL) {
-		return 0;
+	if (root->left == NULL && root->right == NULL) {
+		return 1;
 	}
 
-	if (root->right != NULL && root->left == NULL) {
+	if (root->left == NULL || root->right == NULL) {
 		return 0;
 	}
 

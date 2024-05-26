@@ -24,9 +24,11 @@ func main() {
 		tasks := make([]Task, size)
 
 		for i := range tasks {
-			fmt.Scan(&tasks[i].id)
-			fmt.Scan(&tasks[i].deadLine)
-			fmt.Scan(&tasks[i].profit)
+			fmt.Scan(
+				&tasks[i].id,
+				&tasks[i].deadLine,
+				&tasks[i].profit,
+			)
 		}
 
 		sort.Slice(tasks, func(i, j int) bool {
@@ -38,7 +40,7 @@ func main() {
 			return tasks[i].deadLine > tasks[j].deadLine
 		})
 
-		tasksTaked, totalProfit := 0, 0
+		tasksDone, totalProfit := 0, 0
 		isWorking := make(map[int]bool, size)
 
 		for _, task := range tasks {
@@ -49,7 +51,7 @@ func main() {
 				}
 
 				totalProfit += task.profit
-				tasksTaked += 1
+				tasksDone += 1
 
 				isWorking[i] = true
 
@@ -57,6 +59,6 @@ func main() {
 			}
 		}
 
-		fmt.Println(tasksTaked, totalProfit)
+		fmt.Println(tasksDone, totalProfit)
 	}
 }
