@@ -10,22 +10,24 @@ Output
 Hello PTIT.
 */
 
-const char *msg = "Hello PTIT.\n";
-const volatile int len = 12;
-
 int main(void) {
 
-	asm(".intel_syntax noprefix");
+	const char *msg = "Hello PTIT.\n";
+	const int len = 12;
 
-	asm("mov   rax, 1");
-	asm("mov   rdi, 1");
+	asm(".intel_syntax noprefix;"
 
-	asm("mov   rsi, QWORD PTR msg[rip]");
-	asm("movsx rdx, DWORD PTR len[rip]");
+	    "mov   rsi, %[message];"
+	    "movsx rdx, %[length];"
 
-	asm("syscall");
+	    "mov   rax, 1;"
+	    "mov   rdi, 1;"
 
-	asm(".att_syntax");
+	    "syscall;"
+
+	    ".att_syntax"
+	    :
+	    : [message] "r"(msg), [length] "r"(len));
 
 	return 0;
 }
