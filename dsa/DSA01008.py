@@ -1,17 +1,12 @@
 from typing import Iterator
 
 
-def allValidBitsStr(length: int, numberOfTrues: int) -> Iterator[str]:
+def allBitsStr(length: int) -> Iterator[str]:
     current = []
 
     def generate() -> Iterator[str]:
-
         if len(current) == length:
-            bitsStr = "".join(current)
-
-            if bitsStr.count("1") == numberOfTrues:
-                yield bitsStr
-
+            yield "".join(current)
             return
 
         for char in ["0", "1"]:
@@ -28,5 +23,12 @@ cases = int(input())
 for _ in range(cases):
     length, numberOfTrues = map(int, input().split())
 
-    for bitStr in allValidBitsStr(length, numberOfTrues):
-        print(bitStr)
+    bitStrings = allBitsStr(length)
+
+    validBitStrings = (
+        string  #
+        for string in bitStrings
+        if string.count("1") == numberOfTrues
+    )
+
+    print(*validBitStrings)

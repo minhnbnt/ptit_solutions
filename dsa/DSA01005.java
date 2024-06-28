@@ -1,3 +1,29 @@
+/*
+Cho số nguyên dương N.
+Nhiệm vụ của bạn là hãy liệt kê tất cả các hoán vị của 1, 2, .., N.
+Ví dụ với N = 3 ta có kết quả: 123, 132, 213, 231, 312, 321.
+
+Input:
+Dòng đầu tiên đưa vào số lượng test T.
+
+Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số tự nhiên N được
+viết trên một dòng.
+
+T, n thỏa mãn ràng buộc: 1≤T, N≤10.
+
+Output:
+Đưa ra kết quả mỗi test theo từng dòng.
+
+Input
+2
+2
+3
+
+Output
+12 21
+123 132 213 231 312 321
+*/
+
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;

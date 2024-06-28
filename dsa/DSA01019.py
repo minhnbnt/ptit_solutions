@@ -1,20 +1,10 @@
 from typing import Iterator
 
 
-def allValidLaugh(length: int) -> Iterator[str]:
-
-    def isValidLaugh(laugh) -> bool:
-
-        for i in range(len(laugh) - 1):
-            if laugh[i] == laugh[i + 1] == "H":
-                return False
-
-        return laugh[0] == "H" and laugh[-1] == "A"
-
+def allLaugh(length: int) -> Iterator[str]:
     current = []
 
     def generate() -> Iterator[str]:
-
         if len(current) == length:
             laugh = "".join(current)
 
@@ -24,7 +14,6 @@ def allValidLaugh(length: int) -> Iterator[str]:
             return
 
         for char in ["A", "H"]:
-
             current.append(char)
 
             yield from generate()
@@ -34,9 +23,24 @@ def allValidLaugh(length: int) -> Iterator[str]:
     yield from generate()
 
 
+def isValidLaugh(laugh: str) -> bool:
+    for i in range(len(laugh) - 1):
+        if laugh[i] == laugh[i + 1] == "H":
+            return False
+
+    return laugh[0] == "H" and laugh[-1] == "A"
+
+
 cases = int(input())
+
 for _ in range(cases):
     length = int(input())
 
-    for laugh in allValidLaugh(length):
-        print(laugh)
+    laughs = allLaugh(length)
+
+    validLaughs = (
+        laugh  #
+        for laugh in laughs
+        if isValidLaugh(laugh)
+    )
+    print(*validLaughs)

@@ -12,10 +12,9 @@ def isValidPairString(string: str) -> bool:
         if len(stack) == 0:
             return False
 
-        if char != VALID_PAIRS.get(stack[-1]):
+        head = stack.pop()
+        if char != VALID_PAIRS.get(head):
             return False
-
-        stack.pop()
 
     return len(stack) == 0
 

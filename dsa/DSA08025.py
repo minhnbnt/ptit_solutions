@@ -1,11 +1,13 @@
 from collections import deque
-
+from typing import Tuple
 
 DX = [-2, -2, -1, -1, 2, 2, 1, 1]
 DY = [-1, 1, -2, 2, -1, 1, -2, 2]
 
+Position = Tuple[int, int]
 
-def isValid(pos):
+
+def isValid(pos: Position):
     if not 0 <= pos[0] < 8:
         return False
 
@@ -15,7 +17,7 @@ def isValid(pos):
     return True
 
 
-def minimumMove(start, finish):
+def minimumMove(start: Position, finish: Position) -> int:
     queue = deque()
     visited = dict()
 
@@ -23,12 +25,12 @@ def minimumMove(start, finish):
     visited[start] = 0
 
     while finish not in visited:
-        current = queue[0]
-        queue.popleft()
+        current = queue.popleft()
+        x, y = current
 
         numberOfMoves = visited[current] + 1
         for dx, dy in zip(DX, DY):
-            pos = (current[0] + dy, current[1] + dx)
+            pos = (x + dx, y + dy)
 
             if pos in visited:
                 continue
@@ -42,7 +44,7 @@ def minimumMove(start, finish):
     return visited[finish]
 
 
-def posParser(pos):
+def posParser(pos: str) -> Position:
     row = int(pos[1]) - 1
     column = ord(pos[0]) - ord("a")
 

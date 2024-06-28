@@ -1,4 +1,7 @@
-def getOutput(stepNumber, array):
+from typing import List
+
+
+def getOutput(stepNumber: int, array: List[int]) -> str:
     return f"Buoc {stepNumber}: " + " ".join(map(str, array))
 
 
