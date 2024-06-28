@@ -1,12 +1,14 @@
+from itertools import count
+
 cases = int(input())
 
 for _ in range(cases):
     size = int(input())
     array = list(map(int, input().split()))
 
-    stepNumber, steps = 0, list()
+    outputs = list()
 
-    while True:
+    for step in count(1):
         isSorted = True
 
         for i in range(size - 1):
@@ -19,9 +21,8 @@ for _ in range(cases):
         if isSorted:
             break
 
-        stepNumber += 1
-        output = f"Buoc {stepNumber}: " + " ".join(map(str, array))
-        steps.append(output)
+        output = f"Buoc {step}: " + " ".join(map(str, array))
+        outputs.append(output)
 
-    for outputLine in reversed(steps):
+    for outputLine in reversed(outputs):
         print(outputLine)

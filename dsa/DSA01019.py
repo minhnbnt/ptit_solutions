@@ -6,11 +6,7 @@ def allLaugh(length: int) -> Iterator[str]:
 
     def generate() -> Iterator[str]:
         if len(current) == length:
-            laugh = "".join(current)
-
-            if isValidLaugh(laugh):
-                yield laugh
-
+            yield "".join(current)
             return
 
         for char in ["A", "H"]:
@@ -36,11 +32,10 @@ cases = int(input())
 for _ in range(cases):
     length = int(input())
 
-    laughs = allLaugh(length)
-
     validLaughs = (
         laugh  #
-        for laugh in laughs
+        for laugh in allLaugh(length)
         if isValidLaugh(laugh)
     )
+
     print(*validLaughs)

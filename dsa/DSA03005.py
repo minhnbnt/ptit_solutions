@@ -4,7 +4,7 @@ for _ in range(cases):
     size, leftSize = map(int, input().split())
     array = sorted(map(int, input().split()))
 
-    if leftSize > size // 2:
+    if leftSize > size / 2:
         leftSize = size - leftSize
 
     sumLeft = sum(array[:leftSize])

@@ -1,16 +1,12 @@
-from typing import Callable, Iterator
+from typing import Iterator
 
 
-def allValidABStrings(length: int, validFunc: Callable[[str], bool]) -> Iterator[str]:
+def allABStrings(length: int) -> Iterator[str]:
     chars = list()
 
     def generator():
         if len(chars) == length:
-            result = "".join(chars)
-
-            if validFunc(result):
-                yield result
-
+            yield "".join(chars)
             return
 
         for char in ("A", "B"):
@@ -29,7 +25,12 @@ def isValid(s: str, aLength: int) -> bool:
     return "A" * aLength in s
 
 
-size, aLength = map(int, input().split())
-result = list(allValidABStrings(size, lambda s: isValid(s, aLength)))
+length, aLength = map(int, input().split())
+
+result = [
+    string  #
+    for string in allABStrings(length)
+    if isValid(string, aLength)
+]
 
 print(len(result), *result, sep="\n", end="\n")

@@ -1,9 +1,9 @@
-size = int(input())
+from itertools import count
 
+size = int(input())
 array = list(map(int, input().split()))
 
-step = 0
-while True:
+for step in count(1):
     isSorted = True
 
     for i in range(1, size):
@@ -16,5 +16,4 @@ while True:
     if isSorted:
         break
 
-    step += 1
     print(f"Buoc {step}:", *array)

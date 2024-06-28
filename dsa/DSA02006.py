@@ -1,21 +1,11 @@
 from typing import Iterator, List
 
 
-def printArray(array: List[int]) -> None:
-    elements = " ".join(map(str, array))
-    print(f"[{elements}]", end=" ")
-
-
-def generate(array: List[int], targetSum: int) -> Iterator[List[int]]:
-    array = sorted(array)
-
+def allSubArray(array: List[int]) -> Iterator[List[int]]:
     current = []
 
     def helper(index=0) -> Iterator[List[int]]:
-        global currentSum
-
-        if sum(current) == targetSum:
-            yield current
+        yield current
 
         while index < len(array):
             currentNum = array[index]
@@ -27,18 +17,26 @@ def generate(array: List[int], targetSum: int) -> Iterator[List[int]]:
 
             current.pop()
 
-    yield from helper()
+    return helper()
 
 
 cases = int(input())
 for _ in range(cases):
     size, targetSum = map(int, input().split())
 
-    array = [int(token) for token in input().split()]
+    array = sorted(int(token) for token in input().split())
 
     has = False
-    for subArray in generate(array, targetSum):
-        printArray(subArray)
+    results = (
+        subArray
+        for subArray in allSubArray(array)
+        if sum(subArray) == targetSum
+    )
+
+    for subArray in results:
+        elements = " ".join(map(str, subArray))
+        print(f"[{elements}]", end=" ")
+
         has = True
 
     print("-1" if not has else "")

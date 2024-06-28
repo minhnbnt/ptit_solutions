@@ -36,7 +36,9 @@ cases = int(input())
 for _ in range(cases):
     n, k = map(int, input().split())
 
-    for combination in combinations(range(1, n + 1), k):
+    array = [x + 1 for x in range(n)]
+
+    for combination in combinations(array, k):
         print(*combination, sep="", end=" ")
 
     print()

@@ -11,7 +11,6 @@ def allBitsStr(length: int) -> Iterator[str]:
 
         for char in ["0", "1"]:
             current.append(char)
-
             yield from generate()
 
             current.pop()
@@ -23,11 +22,9 @@ cases = int(input())
 for _ in range(cases):
     length, numberOfTrues = map(int, input().split())
 
-    bitStrings = allBitsStr(length)
-
     validBitStrings = (
         string  #
-        for string in bitStrings
+        for string in allBitsStr(length)
         if string.count("1") == numberOfTrues
     )
 

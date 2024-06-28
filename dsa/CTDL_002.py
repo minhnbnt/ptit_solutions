@@ -23,26 +23,20 @@ Dòng cuối cùng ghi lại số các dãy con có tổng các phần tử đú
 3
 """
 
+from typing import Iterator, List
 
-def allValidSubarray(array, targetSum):
-    validArray = []
-    arrayLength = len(array)
 
-    def solve(index=0, sum=0):
-        if sum == targetSum:
-            yield validArray
+def allSubarray(array: List[int]) -> Iterator[List[int]]:
+    current = []
 
-        if index == arrayLength:
-            return
+    def solve(index=0):
+        yield current
 
-        for i in range(index, arrayLength):
-            validArray.append(array[i])
-            sum += array[i]
+        for i in range(index, len(array)):
+            current.append(array[i])
+            yield from solve(i + 1)
 
-            yield from solve(i + 1, sum)
-
-            validArray.pop()
-            sum -= array[i]
+            current.pop()
 
     yield from solve()
 
@@ -50,12 +44,13 @@ def allValidSubarray(array, targetSum):
 size__, targetSum = (int(token) for token in input().split())
 array = [int(token) for token in input().split()]
 
-outputs = []
-for validArray in allValidSubarray(array, targetSum):
-    line = " ".join(str(element) for element in validArray)
-    outputs.append(line)
+results = [
+    list(subArray)
+    for subArray in allSubarray(array)
+    if sum(subArray) == targetSum
+]
 
-for outputLine in reversed(outputs):
-    print(outputLine)
+for subArray in reversed(results):
+    print(*subArray)
 
-print(len(outputs))
+print(len(results))

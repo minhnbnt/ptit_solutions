@@ -37,7 +37,7 @@ def generate(array: List[int], rank: int) -> Iterator[List[int]]:
             current = array[index]
             index += 1
 
-            if len(subArray) > 0 and current < subArray[-1]:
+            if subArray and current < subArray[-1]:
                 continue
 
             subArray.append(current)
@@ -52,8 +52,5 @@ def generate(array: List[int], rank: int) -> Iterator[List[int]]:
 size, rank = map(int, input().split())
 array = [int(token) for token in input().split()]
 
-result = 0
-for _ in generate(array, rank):
-    result += 1
-
+result = sum(1 for _ in generate(array, rank))
 print(result)

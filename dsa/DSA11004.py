@@ -73,7 +73,4 @@ for _ in range(cases):
         else:
             parentNode.right = childNode
 
-    for value in binaryTree.levelorderTransverse():
-        print(value, end=" ")
-
-    print()
+    print(*binaryTree.levelorderTransverse())
