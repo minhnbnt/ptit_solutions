@@ -19,31 +19,16 @@ func (self *TreeNode) PreorderTransversal() {
 	self.right.PreorderTransversal()
 }
 
-func FillTree(root **TreeNode, data int) {
+func FillTree(root *TreeNode, node *TreeNode) *TreeNode {
 
-	if *root == nil {
-		*root = &TreeNode{data: data}
-		return
+	if root == nil {
+		return node
 	}
 
-	if data < (*root).data {
-		FillTree(&(*root).left, data)
+	if node.data < root.data {
+		root.left = FillTree(root.left, node)
 	} else {
-		FillTree(&(*root).right, data)
-	}
-}
-
-func GetTreeByLevelOrder(levelOrder []int) *TreeNode {
-
-	length := len(levelOrder)
-	if length == 0 {
-		return nil
-	}
-
-	root := &TreeNode{data: levelOrder[0]}
-
-	for i := 1; i < length; i++ {
-		FillTree(&root, levelOrder[i])
+		root.right = FillTree(root.right, node)
 	}
 
 	return root
@@ -59,12 +44,23 @@ func main() {
 		var size int
 		fmt.Scan(&size)
 
-		levelOrder := make([]int, size)
-		for i := range levelOrder {
-			fmt.Scan(&levelOrder[i])
+		nodes := make([]TreeNode, size)
+		for i := range nodes {
+
+			var data int
+			fmt.Scan(&data)
+
+			nodes[i] = TreeNode{
+				data:  data,
+				left:  nil,
+				right: nil,
+			}
 		}
 
-		root := GetTreeByLevelOrder(levelOrder)
+		var root *TreeNode
+		for i := range nodes {
+			root = FillTree(root, &nodes[i])
+		}
 
 		root.PreorderTransversal()
 		fmt.Println()

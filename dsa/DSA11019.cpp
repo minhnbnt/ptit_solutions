@@ -1,51 +1,35 @@
-#include <functional>
 #include <iostream>
-#include <memory>
 #include <vector>
 
 struct TreeNode {
-
-	int value;
-	std::unique_ptr<TreeNode> left, right;
-
-	TreeNode(int x) : value(x) {}
+	int data;
+	TreeNode *left, *right;
 };
 
-void fill_tree(std::unique_ptr<TreeNode> &root, int value,
-               std::function<bool(int, int)> comparator) {
+void fill_tree(TreeNode *&root, TreeNode *node) {
 
-	if (root == nullptr) {
-		root = std::make_unique<TreeNode>(value);
+	if (root == NULL) {
+		root = node;
 		return;
 	}
 
-	if (comparator(value, root->value)) {
-		fill_tree(root->left, value, comparator);
+	if (root->data > node->data) {
+		fill_tree(root->left, node);
 	} else {
-		fill_tree(root->right, value, comparator);
+		fill_tree(root->right, node);
 	}
 }
 
-std::unique_ptr<TreeNode>
-fill_tree_by_preorder(const std::vector<int> &preorder) {
+void post_order_transverse(const TreeNode *root) {
 
-	std::unique_ptr<TreeNode> root = nullptr;
-
-	for (int element : preorder) {
-		fill_tree(root, element, std::less<int>());
+	if (root == NULL) {
+		return;
 	}
 
-	return root;
-}
+	post_order_transverse(root->left);
+	post_order_transverse(root->right);
 
-void postorder_transversal(const TreeNode *root) {
-
-	if (root == NULL) return;
-
-	postorder_transversal(root->left.get());
-	postorder_transversal(root->right.get());
-
-	std::cout << root->value << ' ';
+	std::cout << root->data << ' ';
 }
 
 int main(void) {
@@ -56,19 +40,23 @@ int main(void) {
 	unsigned cases;
 	std::cin >> cases;
 
-	while (cases-- > 0) {
+	while (cases--) {
 
 		size_t size;
 		std::cin >> size;
 
-		std::vector<int> preorder(size);
-		for (int &x : preorder) {
-			std::cin >> x;
+		std::vector<TreeNode> nodes(size);
+		for (auto &[data, left, right] : nodes) {
+			left = right = NULL;
+			std::cin >> data;
 		}
 
-		auto root = fill_tree_by_preorder(preorder);
+		TreeNode *root = NULL;
+		for (TreeNode &node : nodes) {
+			fill_tree(root, &node);
+		}
 
-		postorder_transversal(root.get());
+		post_order_transverse(root);
 		std::cout << std::endl;
 	}
 
