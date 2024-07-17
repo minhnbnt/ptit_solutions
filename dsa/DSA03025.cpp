@@ -40,7 +40,7 @@ int main(void) {
 		size_t result = 0;
 		int prev_end = std::numeric_limits<int>::min();
 
-		for (auto [begin, end] : lines) {
+		for (const auto &[begin, end] : lines) {
 
 			if (begin < prev_end) {
 				continue;

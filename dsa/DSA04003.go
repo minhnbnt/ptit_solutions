@@ -1,3 +1,24 @@
+/*
+Cho số nguyên dương n.
+Hãy cho biết có bao nhiêu dãy số nguyên dương có tổng các phần tử trong dãy bằng
+n.
+
+Dữ liệu vào: dòng đầu tiên chứa số nguyên T là số bộ dữ liệu, mỗi bộ dữ liệu ghi
+một số nguyên dương n duy nhất không qua 10^18.
+
+Kết quả: Mỗi bộ dữ liệu ghi ra một số nguyên duy nhất là số dư của kết quả tìm
+được khi chia cho 123456789.
+
+Ví dụ:
+
+Input:
+1
+3
+
+Output:
+4
+*/
+
 package main
 
 import "fmt"

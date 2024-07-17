@@ -1,3 +1,40 @@
+/*
+Cho dãy số A[] có N phần tử là các số nguyên dương khác nhau từng đôi một.
+
+Hãy sắp xếp dãy theo thứ tự giảm dần, sau đó liệt kê tất cả các dãy con (đúng
+thứ tự trước sau) của A[] có tổng các phần tử là số lẻ.
+
+Các dãy con được liệt kê theo thứ tự từ điển tăng dần.
+
+Input
+Dòng đầu ghi số bộ test, mỗi test có 2 dòng:
+
+Dòng đầu ghi số N (2 < N <15)
+Dòng thứ 2 ghi N số của dãy A[], các số đều nguyên dương, nhỏ hơn 100 và khác
+nhau từng đôi một.
+
+Output
+Với mỗi test, liệt kê tất cả các dãy con có tổng các phần tử là số lẻ theo thứ
+tự từ điển tăng dần, mỗi dãy con trên một dòng.
+
+Ví dụ
+
+Input
+1
+4
+2 3 4 5
+
+Output:
+3
+3 2
+4 3
+4 3 2
+5
+5 2
+5 4
+5 4 2
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <numeric>

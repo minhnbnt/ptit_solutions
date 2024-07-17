@@ -8,10 +8,12 @@ import (
 
 func main() {
 
-	stdin := bufio.NewReader(os.Stdin)
-	stdout := bufio.NewWriter(os.Stdout)
+	stdio := bufio.NewReadWriter(
+		bufio.NewReader(os.Stdin),
+		bufio.NewWriter(os.Stdout),
+	)
 
-	defer stdout.Flush()
+	defer stdio.Flush()
 
 	buffer := list.New()
 	buffer.PushBack('\n')
@@ -20,7 +22,7 @@ func main() {
 
 	for {
 
-		keyPressed, _, _ := stdin.ReadRune()
+		keyPressed, _, _ := stdio.ReadRune()
 
 		if keyPressed == '\n' {
 			break
@@ -53,6 +55,6 @@ func main() {
 	}
 
 	for ptr := buffer.Front(); ptr != nil; ptr = ptr.Next() {
-		stdout.WriteRune(ptr.Value.(rune))
+		stdio.WriteRune(ptr.Value.(rune))
 	}
 }

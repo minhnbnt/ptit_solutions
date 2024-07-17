@@ -1,3 +1,26 @@
+#!/usr/bin/env python3
+
+"""
+Cho 2 số nguyên n, k. Bạn hãy tính C(n, k) modulo 10^9+7.
+
+Input:
+Dòng đầu tiên là số lượng bộ test T (T ≤ 20).
+Mỗi test gồm 2 số nguyên n, k (1 ≤ k ≤ n ≤ 1000).
+
+Output:
+Với mỗi test, in ra đáp án trên một dòng.
+
+Ví dụ:
+Input
+2
+5 2
+10 3
+
+Output
+10
+120
+"""
+
 from functools import lru_cache
 from sys import setrecursionlimit
 

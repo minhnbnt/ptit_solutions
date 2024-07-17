@@ -1,3 +1,32 @@
+/*
+Cho số nguyên dương N (2 < N <10). Một số nguyên dương K có N chữ số được gọi là
+số xa cách nếu thỏa mãn:
+
+K không chứa chữ số 0
+Tất cả các chữ số từ 1 đến N đều xuất hiện trong K đúng 1 lần
+Không có hai chữ số liên tiếp nào trong K có hiệu bằng 1.
+
+Hãy liệt kê tất cả các số thỏa mãn theo thứ tự tăng dần.
+
+Input
+Dòng đầu ghi số bộ test (không quá 10)
+Mỗi bộ test là 1 số nguyên dương N (2 < N < 10)
+
+Output
+Liệt kê tất cả các số thỏa mãn, mỗi số trên một dòng.
+Sau mỗi test in ra một khoảng trống.
+
+Ví dụ
+Input
+2
+3
+4
+
+Output
+2413
+3142
+*/
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
