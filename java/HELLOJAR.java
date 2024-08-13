@@ -33,9 +33,12 @@ class PaymentController {
 	}
 
 	public double getAmount() {
-		return this.subjects.stream()
-		    .mapToDouble(s -> s.getCredit() * this.rule.getCreditPrice())
-		    .reduce(0, Double::sum);
+
+		int totalCredit = this.subjects.stream()
+		                      .mapToInt(Subject::getCredit)
+		                      .reduce(0, Integer::sum);
+
+		return this.rule.getCreditPrice() * totalCredit;
 	}
 
 	public Invoice getInvoice() {
