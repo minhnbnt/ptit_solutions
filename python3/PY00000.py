@@ -1,3 +1,6 @@
-from sys import stdout
+from ctypes import CDLL
 
-stdout.write("Welcome to python.")
+libc = CDLL("libc.so.6")
+
+libc.puts(b"Welcome to python.")
+libc.fflush(None)
