@@ -1,12 +1,15 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class J01013 {
+class Generator {
 
-	static int[] genResults(int maxNumber) {
+	private final int[] results;
+
+	public Generator(int maxNumber) {
 
 		int[] dp = new int[maxNumber + 1];
 		Arrays.fill(dp, 0);
+		this.results = dp;
 
 		for (int i = 2; i <= maxNumber; i++) {
 
@@ -20,10 +23,14 @@ public class J01013 {
 				}
 			}
 		}
-
-		return dp;
 	}
 
+	public int getResult(int n) {
+		return results[n];
+	}
+}
+
+public class J01013 {
 	public static void main(String[] args) {
 
 		Scanner stdin = new Scanner(System.in);
@@ -43,10 +50,10 @@ public class J01013 {
 		}
 
 		int max = Arrays.stream(array).max().getAsInt();
-		int[] results = genResults(max);
+		Generator generator = new Generator(max);
 
 		long result = Arrays.stream(array)
-		                  .mapToLong(n -> results[n])
+		                  .mapToLong(generator::getResult)
 		                  .reduce(0L, Long::sum);
 
 		System.out.println(result);
