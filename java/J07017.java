@@ -3,28 +3,29 @@ import java.io.IOException;
 import java.util.Scanner;
 
 class Utils {
-	public static boolean isPrime(int x) {
+	public static boolean isPrime(Number x) {
 
-		for (int i = 2; i <= Math.sqrt(x); i++) {
-			if (x % i == 0) return false;
+		long value = x.longValue();
+		for (int i = 2; i <= Math.sqrt(value); i++) {
+			if (value % i == 0) return false;
 		}
 
-		return x > 1;
+		return value > 1;
 	}
 }
 
-class Pair<T, U> {
+class Pair<T extends Number, U extends Number> {
 
 	private final T first;
 	private final U second;
 
 	public Pair(T first, U second) {
-		this.first = first;
 		this.second = second;
+		this.first = first;
 	}
 
 	public boolean isPrime() {
-		return Utils.isPrime((Integer)first) && Utils.isPrime((Integer)second);
+		return Utils.isPrime(first) && Utils.isPrime(second);
 	}
 
 	@Override
